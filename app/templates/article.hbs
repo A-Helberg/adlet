@@ -1,3 +1,7 @@
 <h3>Article</h3>
-<p>{{ model.content }}</p>
+<p>{{ model.Name }}</p>
+{{#each article in model.Contents}}
+<h7>{{ article.Key }}</h7>
+{{/each}}
+
 {{outlet}}
