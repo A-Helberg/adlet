@@ -9,12 +9,7 @@ Ember.MODEL_FACTORY_INJECTIONS = true;
 var App = Ember.Application.extend({
   modulePrefix: config.modulePrefix,
   podModulePrefix: config.podModulePrefix,
-  Resolver: Resolver,
-  ApplicationAdapter: DS.Adapter.extend({
-    find: function (store, type, id){
-      return {content:"ho",id: 1};
-    }
-  })
+  Resolver: Resolver
 });
 
 loadInitializers(App, config.modulePrefix);
