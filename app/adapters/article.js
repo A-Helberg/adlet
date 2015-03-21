@@ -1,13 +1,16 @@
 import DS from "ember-data";
 
 export default DS.Adapter.extend({
+    params: function(){
+      return {
+        Bucket: 'am-testblog', /* required */
+      };
+    },
     list: function(){
       AWS.config.update({accessKeyId: '', secretAccessKey: ''});
       var s3 = new AWS.S3({region: 'us-west-2', maxRetries: 5});
 
-      var params = {
-        Bucket: 'am-testblog', /* required */
-      };
+      var params = this.params();
       
       return new Ember.RSVP.Promise(function(resolve, reject){
         s3.listObjects(params, function(err, data) {
@@ -23,11 +26,28 @@ export default DS.Adapter.extend({
       });
     },
 
+    getArticle: function(key){
+      AWS.config.update({accessKeyId: '', secretAccessKey: ''});
+      var s3 = new AWS.S3({region: 'us-west-2', maxRetries: 5});
+
+      var params = this.params();
+      params['Key'] = key;
+      
+      return new Ember.RSVP.Promise(function(resolve, reject){
+        s3.getObject(params, function(err, data) {
+          if (err) reject(err); // an error occurred
+          var article = data;
+          console.log(data);
+          article['id'] = key;
+
+          resolve( article );  // successful response
+        });
+      });
+
+    },
+
     find: function (store, type, id){
-      console.log(store);
-      console.log(type);
-      console.log(id);
-      return {Key:"ho",id: 1};
+      return this.getArticle(id);
     },
 
     findAll: function(){
