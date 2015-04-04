@@ -19,7 +19,6 @@ export default DS.Adapter.extend({
           articles.forEach(function(element, index, array){
             element['id'] = element['ETag'];
           });
-          console.log(articles);
 
           resolve( articles );  // successful response
         });
@@ -37,7 +36,6 @@ export default DS.Adapter.extend({
         s3.getObject(params, function(err, data) {
           if (err) reject(err); // an error occurred
           var article = data;
-          console.log(data);
           article['id'] = key;
 
           resolve( article );  // successful response
