@@ -15,12 +15,7 @@ export default DS.Adapter.extend({
       return new Ember.RSVP.Promise(function(resolve, reject){
         s3.listObjects(params, function(err, data) {
           if (err) reject(err); // an error occurred
-          var articles = data['Contents'];
-          articles.forEach(function(element, index, array){
-            element['id'] = element['ETag'];
-          });
-
-          resolve( articles );  // successful response
+          resolve( data );  // successful response
         });
       });
     },
@@ -35,10 +30,7 @@ export default DS.Adapter.extend({
       return new Ember.RSVP.Promise(function(resolve, reject){
         s3.getObject(params, function(err, data) {
           if (err) reject(err); // an error occurred
-          var article = data;
-          article['id'] = key;
-
-          resolve( article );  // successful response
+          resolve( data );  // successful response
         });
       });
 
