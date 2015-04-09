@@ -15,6 +15,9 @@ export default DS.Adapter.extend({
       return new Ember.RSVP.Promise(function(resolve, reject){
         s3.listObjects(params, function(err, data) {
           if (err) reject(err); // an error occurred
+          if (err) {
+            reject(err);
+          } // an error occurred
           resolve( data );  // successful response
         });
       });
@@ -30,6 +33,9 @@ export default DS.Adapter.extend({
       return new Ember.RSVP.Promise(function(resolve, reject){
         s3.getObject(params, function(err, data) {
           if (err) reject(err); // an error occurred
+          if (err) {
+            reject(err); // an error occurred
+          }
           resolve( data );  // successful response
         });
       });
