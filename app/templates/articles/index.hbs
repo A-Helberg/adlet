@@ -1,5 +1,7 @@
 <h3>Article List</h3>
+{{#link-to 'articles.new'}}
 <button class="btn btn-success">New Article</button>
+{{/link-to}}
 <p>
 {{#each article in model }}
 <h7>{{#link-to 'article' article }}{{ article.Key }}{{/link-to}}</h7>
