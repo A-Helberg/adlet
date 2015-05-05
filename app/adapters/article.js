@@ -11,10 +11,9 @@ export default DS.Adapter.extend({
       var s3 = new AWS.S3({region: 'us-west-2', maxRetries: 5});
 
       var params = this.params();
-      
+
       return new Ember.RSVP.Promise(function(resolve, reject){
         s3.listObjects(params, function(err, data) {
-          if (err) reject(err); // an error occurred
           if (err) {
             reject(err);
           } // an error occurred
@@ -29,10 +28,9 @@ export default DS.Adapter.extend({
 
       var params = this.params();
       params['Key'] = key;
-      
+
       return new Ember.RSVP.Promise(function(resolve, reject){
         s3.getObject(params, function(err, data) {
-          if (err) reject(err); // an error occurred
           if (err) {
             reject(err); // an error occurred
           }
