@@ -1,20 +1,20 @@
 import DS from "ember-data";
 
 export default DS.Serializer.extend({
-  extract: function(store, type, payload, id, requestType){
-    if (requestType === "findAll"){
+  extract: function(store, type, payload, id, requestType) {
+    if (requestType === "findAll") {
       payload = payload['Contents'];
-      payload.forEach(function(element, index, array){
+      payload.forEach(function(element, index, array) {
         element['id'] = element['Key'];
       });
-    } else if (requestType === "find"){
-      payload['id'] = id;
+    } else if (requestType === "find") {
       payload['Key'] = id;
-    } else if (requestType === 'deleteRecord') {
-      payload = {};
     }
-    if (requestType !== 'deleteRecord') {
-      return payload;
+
+    if (requestType !== 'findAll') {
+      payload['id'] = id;
     }
+
+    return payload;
   }
 });
