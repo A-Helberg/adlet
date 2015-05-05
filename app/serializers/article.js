@@ -9,8 +9,12 @@ export default DS.Serializer.extend({
       });
     } else if (requestType === "find"){
       payload['id'] = id;
+      payload['Key'] = id;
+    } else if (requestType === 'deleteRecord') {
+      payload = {};
     }
-
-    return payload;
+    if (requestType !== 'deleteRecord') {
+      return payload;
+    }
   }
 });
