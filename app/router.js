@@ -9,7 +9,9 @@ Router.map(function() {
   this.route('articles', function() {
     this.route('new');
   });
-  this.resource('article', { path: 'articles/:article_id' }, function() {});
+  this.resource('article', { path: 'articles/:article_id' }, function() {
+    this.route('edit');
+  });
 });
 
 export default Router;
