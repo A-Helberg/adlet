@@ -1,2 +1,5 @@
 <h4>Article index page</h4>
-{{outlet}}
+<button class="btn btn-danger" {{action 'delete'}}>Delete</button>
+<h3>{{ model.Key }}</h3>
+
+<p>{{ model.Body }}</p>
