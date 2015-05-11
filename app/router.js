@@ -6,6 +6,8 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('login', function() {});
+
   this.route('articles', function() {
     this.route('new');
   });
