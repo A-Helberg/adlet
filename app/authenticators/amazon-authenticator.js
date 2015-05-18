@@ -11,7 +11,7 @@ export default Base.extend({
           reject(err); // an error occurred
         }
         AWS.config.update({credentials: credentials});
-        resolve( {options: options} );  // successful response
+        resolve( options );  // successful response
       });
     });
   },
@@ -28,7 +28,7 @@ export default Base.extend({
           reject(err); // an error occurred
         }
         AWS.config.update({credentials: credentials});
-        resolve( {options: options} );  // successful response
+        resolve( options );  // successful response
       });
     });
   },
