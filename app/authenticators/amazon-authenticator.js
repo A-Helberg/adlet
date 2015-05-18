@@ -3,21 +3,17 @@ import Ember from 'ember';
 
 export default Base.extend({
   restore: function(options) {
-    debugger
-    console.log(options);
-    // var credentials = options['credentials'];
-    // return new Ember.RSVP.Promise(function(resolve, reject){
-    //   debugger
-    //   credentials.refresh(function(err) {
-    //     debugger
-    //     if (err) {
-    //       console.log("!!!! Error restoring session: ", err);
-    //       reject(err); // an error occurred
-    //     }
-    //     AWS.config.update({credentials: credentials});
-    //     resolve( {credentials: credentials} );  // successful response
-    //   });
-    // });
+    var credentials = new AWS.Credentials(options);
+    return new Ember.RSVP.Promise(function(resolve, reject){
+      credentials.refresh(function(err) {
+        if (err) {
+          console.log("!!!! Error restoring session: ", err);
+          reject(err); // an error occurred
+        }
+        AWS.config.update({credentials: credentials});
+        resolve( {options: options} );  // successful response
+      });
+    });
   },
   authenticate: function(options) {
     // AWS.config.update({accessKeyId: options.accessKeyId, secretAccessKey: options.secretAccessKey});
@@ -26,14 +22,13 @@ export default Base.extend({
 
     var credentials = new AWS.Credentials(options);
 
-
     return new Ember.RSVP.Promise(function(resolve, reject){
       credentials.refresh(function(err) {
         if (err) {
           reject(err); // an error occurred
         }
         AWS.config.update({credentials: credentials});
-        resolve( {credentials: credentials} );  // successful response
+        resolve( {options: options} );  // successful response
       });
     });
   },
