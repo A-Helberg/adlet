@@ -7,8 +7,9 @@ export default DS.Adapter.extend({
       };
     },
     list: function(){
-      AWS.config.update({accessKeyId: 'AKIAJOSWLUHI35IU2N5Q', secretAccessKey: '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'});
+      debugger
       var s3 = new AWS.S3({region: 'us-west-2', maxRetries: 5});
+
 
       var params = this.params();
 
@@ -23,7 +24,6 @@ export default DS.Adapter.extend({
     },
 
     getArticle: function(key){
-      AWS.config.update({accessKeyId: 'AKIAJOSWLUHI35IU2N5Q', secretAccessKey: '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'});
       var s3 = new AWS.S3({region: 'us-west-2', maxRetries: 5});
 
       var params = this.params();
@@ -40,7 +40,6 @@ export default DS.Adapter.extend({
     },
 
     createRecord: function(store, type, snapshot) {
-      AWS.config.update({accessKeyId: 'AKIAJOSWLUHI35IU2N5Q', secretAccessKey: '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'});
       var s3 = new AWS.S3({region: 'us-west-2', maxRetries: 5});
 
       var params = this.params();
@@ -58,7 +57,6 @@ export default DS.Adapter.extend({
     },
 
     updateRecord: function(store, type, snapshot) {
-      AWS.config.update({accessKeyId: 'AKIAJOSWLUHI35IU2N5Q', secretAccessKey: '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'});
       var s3 = new AWS.S3({region: 'us-west-2', maxRetries: 5});
 
       var params = this.params();
@@ -76,7 +74,7 @@ export default DS.Adapter.extend({
     },
 
     deleteRecord: function(store, type, snapshot) {
-      AWS.config.update({accessKeyId: 'AKIAJOSWLUHI35IU2N5Q', secretAccessKey: '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'});
+      
       var s3 = new AWS.S3({region: 'us-west-2', maxRetries: 5});
 
       var params = this.params();
