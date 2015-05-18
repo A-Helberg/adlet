@@ -19,12 +19,6 @@ module.exports = function(environment) {
     }
   };
 
-  ENV['simple-auth'] = {
-    authenticate: 'authenticator:amazon-authenticator'
-  };
-
-  // ENV['default']["simple-auth"]
-
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
