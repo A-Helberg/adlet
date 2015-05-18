@@ -9,7 +9,8 @@ export default Base.extend({
     return this.refreshCredentials(options);
   },
   invalidate: function(data) {
-    console.log('Not called :(');
+    AWS.config.update({'accessKeyId': '', 'secretAccessKey': ''});
+    return Ember.RSVP.resolve();
   },
 
   refreshCredentials: function(credentialObject){
