@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
     save: function() {
       var _this = this;
       this.get('model').save().then(function() {
-        _this.transitionTo('article');
+        _this.transitionToRoute('article');
       });
     }
   }
