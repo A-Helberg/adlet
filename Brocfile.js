@@ -19,7 +19,6 @@ var app = new EmberApp();
 
 app.import('bower_components/aws-sdk/dist/aws-sdk.js');
 
-app.import('bower_components/bootstrap/dist/css/bootstrap.min.css');
 app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
 
 module.exports = app.toTree();
