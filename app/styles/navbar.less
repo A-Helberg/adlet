@@ -38,10 +38,22 @@ a.active.navbar__item {
     background-color: @gray-dark;
     border-radius: 10px;
     padding: 1em;
+    &:hover {
+      color: @gray-light;
+      background-color: lighten(@brand-primary, 20%);
+      cursor: pointer;
+    }
   }
+
+  &__item.active {
+    background-color: @gray-light;
+    &:hover {
+      color: @gray-darker;
+      cursor: default;
+    }
+  }
+
 }
-
-
 
 .navbar-nav.navbar__item-list > li {
   padding: 1em 0.5em;
