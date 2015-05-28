@@ -1,7 +1,13 @@
-<h2>EDIT</h2>
-Key:
-{{input value=model.Key}}
-
-Body:
-{{input value=model.Body}}
-<button class="btn btn-primary" {{action 'save'}}>Save</button>
+<div class="col-md-6">
+  <p>
+  {{input value=model.Key placeholder='Title' class="form-control"}}
+  </p>
+  <p>
+  {{textarea value=model.Body placeholder='Body' class="form-control"}}
+  </p>
+  <button class="btn btn-primary pull-right" {{action 'save'}}>Save</button>
+</div>
+<div class="col-md-6">
+  <h1>{{model.Key}}</h1>
+  <p>{{model.Body}}</p>
+</div>
