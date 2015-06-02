@@ -17,6 +17,12 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
+app.import('bower_components/showdown-ghost/src/showdown.js');
+app.import('bower_components/showdown-ghost/src/extensions/ghostgfm.js');
+app.import('bower_components/showdown-ghost/src/extensions/ghostimagepreview.js');
+app.import('bower_components/showdown-ghost/src/extensions/footnotes.js');
+app.import('bower_components/showdown-ghost/src/extensions/highlight.js');
+
 app.import('bower_components/aws-sdk/dist/aws-sdk.js');
 
 app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
