@@ -1,8 +1,4 @@
-
-{{!--   <h1>{{model.Key class="article__title"}}</h1>
-  <p>{{model.Body class="article__body"}}</p> --}}
-
-<div class="container">
+<div>
   <h1 class="article__title"> {{model.Key}} 
     <small class="pull-right">
       <button class="btn btn-danger " {{action 'delete'}}>Delete</button>
@@ -13,7 +9,5 @@
   </h1>
 </div>
 <div class="article__body">
-  <div class="container">
-    {{format-markdown model.Body}}
-  </div>
+  {{format-markdown model.Body}}
 </div>

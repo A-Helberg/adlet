@@ -1,11 +1,12 @@
-<div class="container">
-  <h1>Articles List</h1>
-{{#link-to 'articles.new'}}
-  <button class="btn btn-success pull-right">New Article</button>
-{{/link-to}}
-<ul>
-  {{#each article in model }}
-    <li>{{#link-to 'article' article }}{{ article.Key }}{{/link-to}}</li>
-  {{/each}}
-</ul>
+<div>
+  <h1>Articles
+    <small class="pull-right">
+    {{#link-to 'articles.new'}}
+      <button class="btn btn-success pull-right">New Article</button>
+    {{/link-to}}
+    </small>
+  </h1>
+  <div>
+    Please select an article.    
+  </div>
 </div>
