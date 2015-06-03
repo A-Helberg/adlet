@@ -11,8 +11,11 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar__item-list">
-        <li><a class="active navbar__item">Articles</a></li>
-        <li><a class="navbar__item">Admin</a></li>
+        <li>
+          {{#link-to 'articles' class="navbar__item"}}
+            Articles
+          {{/link-to}}
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
