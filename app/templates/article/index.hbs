@@ -9,5 +9,9 @@
   </h1>
 </div>
 <div class="article__body">
-  {{format-markdown model.Body}}
+  {{#if model.isReloading }}
+    {{spinkit-spinner}}
+  {{else}}
+    {{format-markdown model.Body}}
+  {{/if}}
 </div>
