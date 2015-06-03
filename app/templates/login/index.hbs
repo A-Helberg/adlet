@@ -1,11 +1,13 @@
-<section class="section">
-<h1>Welcome to Adlet</h1>
-<h2>Sign In</h2>
-<p>
-  {{input placeholder='Access Key ID' value=accessKeyId class="form-control"}}
-</p>
-<p>
-  {{input placeholder='Secret Access Key' value=secretAccessKey class="form-control"}}
-</p>
-<button class="btn btn-primary" {{action 'login'}}>Sign In</button>
-</section>
+<div class="container">
+  <section class="section">
+    <h1>Welcome to Adlet</h1>
+    <h2>Sign In</h2>
+    <p>
+      {{input placeholder='Access Key ID' value=accessKeyId class="form-control"}}
+    </p>
+    <p>
+      {{input placeholder='Secret Access Key' value=secretAccessKey class="form-control"}}
+    </p>
+    <button class="btn btn-primary pull-right" {{action 'login'}}>Sign In</button>
+  </section>
+</div>
