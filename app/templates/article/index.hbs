@@ -6,7 +6,9 @@
   <h1 class="article__title"> {{model.Key}} 
     <small class="pull-right">
       <button class="btn btn-danger " {{action 'delete'}}>Delete</button>
+      {{#link-to 'article.edit'}}
       <button class="btn btn-success">Edit</button>
+      {{/link-to}}
     </small>
   </h1>
 </div>
