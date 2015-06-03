@@ -2,8 +2,10 @@ import DS from "ember-data";
 
 function bin2String(array) {
   var result = "";
-  for (var i = 0; i < array.length; i++) {
-    result += String.fromCharCode(array[i]);
+  if (array) {
+    for (var i = 0; i < array.length; i++) {
+      result += String.fromCharCode(array[i]);
+    }  
   }
   return result;
 }
