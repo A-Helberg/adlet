@@ -29,7 +29,7 @@ export default DS.Adapter.extend({
     createRecord: function(store, type, snapshot) {
       var params = this.params();
       params['Key']  = snapshot.get('id');
-      params['Body'] = snapshot.get('Body');
+      params['Body'] = snapshot.get('body');
 
       return this.apiPromise('putObject', params);
     },
@@ -37,7 +37,7 @@ export default DS.Adapter.extend({
     updateRecord: function(store, type, snapshot) {
       var params = this.params();
       params['Key']  = snapshot.get('id');
-      params['Body'] = snapshot.get('Body');
+      params['Body'] = snapshot.get('body');
 
       return this.apiPromise('putObject', params);
     },
