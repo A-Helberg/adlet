@@ -5,7 +5,7 @@ function bin2String(array) {
   if (array) {
     for (var i = 0; i < array.length; i++) {
       result += String.fromCharCode(array[i]);
-    }  
+    }
   }
   return result;
 }
@@ -19,7 +19,6 @@ export default DS.Serializer.extend({
         element['Body'] = bin2String(element['Body']);
       });
     } else if (requestType === "find") {
-      payload['Key'] = id;
       payload['Body'] = bin2String(payload['Body']);
     }
 

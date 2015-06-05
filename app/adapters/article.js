@@ -28,7 +28,7 @@ export default DS.Adapter.extend({
 
     createRecord: function(store, type, snapshot) {
       var params = this.params();
-      params['Key']  = snapshot.get('Key');
+      params['Key']  = snapshot.get('id');
       params['Body'] = snapshot.get('Body');
 
       return this.apiPromise('putObject', params);
@@ -36,7 +36,7 @@ export default DS.Adapter.extend({
 
     updateRecord: function(store, type, snapshot) {
       var params = this.params();
-      params['Key']  = snapshot.get('Key');
+      params['Key']  = snapshot.get('id');
       params['Body'] = snapshot.get('Body');
 
       return this.apiPromise('putObject', params);
@@ -44,7 +44,7 @@ export default DS.Adapter.extend({
 
     deleteRecord: function(store, type, snapshot) {
       var params = this.params();
-      params['Key']  = snapshot.get('Key');
+      params['Key']  = snapshot.get('id');
 
       return this.apiPromise('deleteObject', params);
     },
