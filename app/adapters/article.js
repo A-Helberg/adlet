@@ -35,11 +35,34 @@ export default DS.Adapter.extend({
     },
 
     updateRecord: function(store, type, snapshot) {
-      var params = this.params();
+      
+      var params = this.params(),
+          _this  = this;
       params['Key']  = snapshot.get('id');
       params['Body'] = snapshot.get('body');
+      
+      if (snapshot.get('id') == snapshot.get('data.id')){
+        // Body change only
+        return this.apiPromise('putObject', params);  
+      } else {
+        // Key change
 
-      return this.apiPromise('putObject', params);
+        // Should update old object
+        params['Key'] = snapshot.get('data.id');
+
+        var params2 = this.params();
+        params2['CopySource'] = params2['Bucket']+"/"+snapshot.get('data.id');
+        params2['Key'] = snapshot.get('id');
+
+        var params3 = this.params();
+        params3['Key'] = snapshot.get('data.id');
+
+        return _this.apiPromise('putObject', params).then(function() {
+          return _this.apiPromise('copyObject', params2).then(function() {
+            return _this.apiPromise('deleteObject', params3);
+          });   
+        });
+      }
     },
 
     deleteRecord: function(store, type, snapshot) {
