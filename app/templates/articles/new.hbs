@@ -1,13 +1,13 @@
 <div class="col-md-6">
   <p>
-  {{input value=model.Key placeholder='Title' class="form-control"}}
+  {{input value=model.id placeholder='Title' class="form-control"}}
   </p>
   <p>
-  {{textarea value=model.Body placeholder='Body' rows="15" class="form-control article-edit__body"}}
+  {{textarea value=model.body placeholder='Body' rows="15" class="form-control article-edit__body"}}
   </p>
   <button class="btn btn-primary pull-right" {{action 'save'}}>Save</button>
 </div>
 <div class="col-md-6">
-  <h1>{{model.Key}}</h1>
-  {{format-markdown model.Body}}
+  <h1>{{model.id}}</h1>
+  {{format-markdown model.body}}
 </div>

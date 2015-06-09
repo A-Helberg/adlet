@@ -5,7 +5,7 @@ function bin2String(array) {
   if (array) {
     for (var i = 0; i < array.length; i++) {
       result += String.fromCharCode(array[i]);
-    }  
+    }
   }
   return result;
 }
@@ -16,11 +16,10 @@ export default DS.Serializer.extend({
       payload = payload['Contents'];
       payload.forEach(function(element, index, array) {
         element['id'] = element['Key'];
-        element['Body'] = bin2String(element['Body']);
+        element['body'] = bin2String(element['Body']);
       });
     } else if (requestType === "find") {
-      payload['Key'] = id;
-      payload['Body'] = bin2String(payload['Body']);
+      payload['body'] = bin2String(payload['Body']);
     }
 
     if (requestType !== 'findAll') {

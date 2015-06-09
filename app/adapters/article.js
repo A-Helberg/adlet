@@ -28,23 +28,23 @@ export default DS.Adapter.extend({
 
     createRecord: function(store, type, snapshot) {
       var params = this.params();
-      params['Key']  = snapshot.get('Key');
-      params['Body'] = snapshot.get('Body');
+      params['Key']  = snapshot.get('id');
+      params['Body'] = snapshot.get('body');
 
       return this.apiPromise('putObject', params);
     },
 
     updateRecord: function(store, type, snapshot) {
       var params = this.params();
-      params['Key']  = snapshot.get('Key');
-      params['Body'] = snapshot.get('Body');
+      params['Key']  = snapshot.get('id');
+      params['Body'] = snapshot.get('body');
 
       return this.apiPromise('putObject', params);
     },
 
     deleteRecord: function(store, type, snapshot) {
       var params = this.params();
-      params['Key']  = snapshot.get('Key');
+      params['Key']  = snapshot.get('id');
 
       return this.apiPromise('deleteObject', params);
     },
