@@ -7,7 +7,7 @@
 
     {{#each article in model }}
       {{#link-to 'article' article tagName='li' class="list-group-item articles-menu__item"}}
-        {{ article.id }}
+        {{ article.urlDecodedId }}
       {{/link-to}}
     {{/each}}
   </ul>
