@@ -7,7 +7,6 @@ export default Ember.Controller.extend({
       var _this = this;
       var credentials = this.getProperties('accessKeyId', 'secretAccessKey');
       this.get('session').authenticate('authenticator:amazon-authenticator', credentials).then( function() {
-          debugger
           _this.transitionToRoute('articles');
         });
     }

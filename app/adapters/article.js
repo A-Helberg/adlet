@@ -1,4 +1,6 @@
 import DS from "ember-data";
+import Ember from "ember";
+// import AWS from "aws-sdk/dist/aws-sdk";
 
 export default DS.Adapter.extend({
     params: function(){
@@ -35,15 +37,15 @@ export default DS.Adapter.extend({
     },
 
     updateRecord: function(store, type, snapshot) {
-      
+
       var params = this.params(),
           _this  = this;
       params['Key']  = snapshot.get('id');
       params['Body'] = snapshot.get('body');
-      
-      if (snapshot.get('id') == snapshot.get('data.id')){
+
+      if (snapshot.get('id') === snapshot.get('data.id')){
         // Body change only
-        return this.apiPromise('putObject', params);  
+        return this.apiPromise('putObject', params);
       } else {
         // Key change
 
@@ -60,7 +62,7 @@ export default DS.Adapter.extend({
         return _this.apiPromise('putObject', params).then(function() {
           return _this.apiPromise('copyObject', params2).then(function() {
             return _this.apiPromise('deleteObject', params3);
-          });   
+          });
         });
       }
     },

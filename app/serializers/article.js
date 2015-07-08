@@ -14,7 +14,7 @@ export default DS.Serializer.extend({
   extract: function(store, type, payload, id, requestType) {
     if (requestType === "findAll") {
       payload = payload['Contents'];
-      payload.forEach(function(element, index, array) {
+      payload.forEach(function(element) {
         element['id'] = element['Key'];
         element['body'] = bin2String(element['Body']);
       });

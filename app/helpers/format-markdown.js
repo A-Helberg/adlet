@@ -1,5 +1,4 @@
 import Ember from 'ember';
-
 var showdown = new Showdown.converter();
 
 var formatMarkdown = Ember.HTMLBars.makeBoundHelper(function (arr) {
