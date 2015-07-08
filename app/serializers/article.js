@@ -1,13 +1,12 @@
 import DS from "ember-data";
+import UTF8 from "npm:utf-8";
 
 function bin2String(array) {
-  var result = "";
-  if (array) {
-    for (var i = 0; i < array.length; i++) {
-      result += String.fromCharCode(array[i]);
-    }
+  if (array == undefined){
+    return "";
+  } else {
+    return UTF8.getStringFromBytes(array);
   }
-  return result;
 }
 
 export default DS.Serializer.extend({
