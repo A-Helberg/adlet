@@ -5,6 +5,7 @@ import stringHumanize from 'npm:string-humanize';
 
 export default Ember.Component.extend({
   layout: layout,
+  tagName: 'span',
 
   getStatusName: function() {
     this.set('statusName', stringHumanize(httpStatusName(this.get('status'))));
