@@ -1,5 +1,6 @@
 import Base from 'simple-auth/authenticators/base';
 import Ember from 'ember';
+import AWS from 'npm:aws-sdk';
 
 export default Base.extend({
   restore: function(options) {

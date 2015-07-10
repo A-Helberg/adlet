@@ -1,6 +1,6 @@
 import DS from "ember-data";
 import Ember from "ember";
-// import AWS from "aws-sdk/dist/aws-sdk";
+import AWS from 'npm:aws-sdk';
 
 export default DS.Adapter.extend({
     params: function(){

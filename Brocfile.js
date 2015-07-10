@@ -25,7 +25,7 @@ app.import('bower_components/showdown-ghost/src/extensions/highlight.js');
 
 app.import('vendor/ember-cli-spinkit/styles/spinkit-spinner.css');
 
-app.import('bower_components/aws-sdk/dist/aws-sdk.js');
+// app.import('bower_components/aws-sdk/dist/aws-sdk.js');
 
 app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
 
