@@ -39,7 +39,6 @@
     "ember-data": "1.0.0-beta.15",
     "ember-export-application-global": "^1.0.2",
     "ember-validations": "2.0.0-alpha.3",
-    "http-status-name": "^1.0.1",
     "string-humanize": "^1.0.0",
     "utf-8": "1.0.0"
   }
