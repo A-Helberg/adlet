@@ -13,7 +13,7 @@
     "ember-qunit-notifications": "0.0.7",
     "qunit": "~1.17.1",
     "bootstrap": "~3.3.4",
-    "ember-simple-auth": "0.8.0-beta.2",
+    "ember-simple-auth": "0.8.0",
     "showdown-ghost": "0.3.6"
   }
 }
