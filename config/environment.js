@@ -34,6 +34,9 @@ module.exports = function(environment) {
     ENV.baseURL = '/';
     ENV.locationType = 'none';
 
+    ENV.SECRET_ACCESS_KEY = process.env.SECRET_ACCESS_KEY;
+    ENV.ACCESS_KEY_ID = process.env.ACCESS_KEY_ID;
+
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;

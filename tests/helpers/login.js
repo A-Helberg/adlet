@@ -1,6 +1,8 @@
+import config from '../../config/environment';
+
 var adletLogin = function() {
-  var secretAccessKey = "";
-  var accessKeyId = "";
+  var secretAccessKey = config.SECRET_ACCESS_KEY;
+  var accessKeyId = config.ACCESS_KEY_ID;
 
   visit('/login');
 
