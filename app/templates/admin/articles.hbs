@@ -1,12 +1,11 @@
-
 <div class="col-md-2">
   <ul class="list-group articles-menu">
-    {{#link-to 'articles.new' tagName='li' class="list-group-item articles__new"}}
+    {{#link-to 'admin.articles.new' tagName='li' class="list-group-item articles__new"}}
       New Article
     {{/link-to}}
 
     {{#each article in model }}
-      {{#link-to 'article' article tagName='li' class="list-group-item articles-menu__item"}}
+      {{#link-to 'article.index' article tagName='li' class="list-group-item articles-menu__item"}}
         {{ article.id }}
       {{/link-to}}
     {{/each}}

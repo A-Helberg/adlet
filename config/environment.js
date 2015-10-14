@@ -6,6 +6,8 @@ module.exports = function(environment) {
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
+    ReadOnlyAccessKeyID: 'AKIAJ4XB57FZCE3VTPMA',
+    ReadOnlySecretAccessKey: '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',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -45,3 +47,4 @@ module.exports = function(environment) {
 
   return ENV;
 };
+

@@ -1,4 +1,4 @@
-# Adlet [![Build Status](https://travis-ci.org/A-Helberg/adlet.svg)](https://travis-ci.org/A-Helberg/adlet) [![Code Climate](https://codeclimate.com/github/A-Helberg/adlet/badges/gpa.svg)](https://codeclimate.com/github/A-Helberg/adlet)
+# Adlet [![Build Status](https://travis-ci.org/A-Helberg/adlet.svg)](https://travis-ci.org/A-Helberg/adlet)
 
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.

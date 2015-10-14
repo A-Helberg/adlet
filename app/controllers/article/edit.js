@@ -8,7 +8,7 @@ export default Ember.Controller.extend(EmberValidations.Mixin, {
     save: function() {
       var _this = this;
       this.get('model').save().then(function(article) {
-        _this.transitionToRoute('article', article.get('id'));
+        _this.transitionToRoute('article.index', article.get('id'));
       });
     }
   },

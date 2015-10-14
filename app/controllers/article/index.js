@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
     delete: function() {
       var _this = this;
       this.get('model').destroyRecord().then(function() {
-        _this.transitionToRoute('articles');
+        _this.transitionToRoute('admin.articles');
       });
     }
   }
