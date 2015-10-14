@@ -14,14 +14,7 @@ var accessKeyId = "";
 module('Acceptance: Admin Articles', {
   beforeEach: function() {
     application = startApp();
-
-    visit('/login');
-
-    andThen(function(){
-      fillIn('.login__secret-access-key', secretAccessKey);
-      fillIn('.login__access-key-id', accessKeyId);
-      click('.login__button');
-    });
+    login();
   },
 
   afterEach: function() {
