@@ -15,8 +15,8 @@ export default function startApp(attrs) {
 
   Ember.run(function() {
     application = Application.create(attributes);
+    Ember.Test.registerHelper('login', loginHelper);
     application.setupForTesting();
-    Ember.Test.registerAsyncHelper('login', loginHelper);
     application.injectTestHelpers();
   });
 

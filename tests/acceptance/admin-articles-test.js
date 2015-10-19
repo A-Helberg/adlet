@@ -14,7 +14,7 @@ var accessKeyId = "";
 module('Acceptance: Admin Articles', {
   beforeEach: function() {
     application = startApp();
-    login();
+
   },
 
   afterEach: function() {
@@ -23,10 +23,13 @@ module('Acceptance: Admin Articles', {
 });
 
 test('visiting /admin/articles', function(assert) {
-
-  visit('/admin/articles');
-
-  andThen(function() {
+  login();
+  andThen(function(){
     assert.equal(currentPath(), 'admin.articles.index');
+    visit('/admin/articles');
+
+    andThen(function() {
+      // assert.equal(currentPath(), 'admin.articles.index');
+    });
   });
 });

@@ -11,6 +11,10 @@ var adletLogin = function() {
     fillIn('.login__access-key-id', accessKeyId);
     click('.login__button');
   });
+
+  andThen(function(assert){
+      visit('/admin/articles');
+  });
 };
 
 export default adletLogin;
