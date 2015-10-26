@@ -12,8 +12,8 @@ var adletLogin = function() {
     click('.login__button');
   });
 
-  andThen(function(assert){
-      visit('/admin/articles');
+  andThen(function(assert) {
+    visit('/admin/articles');
   });
 };
 
