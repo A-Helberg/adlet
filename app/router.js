@@ -6,6 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('index');
   this.route('login', function() {});
 
   this.route('admin', function() {
