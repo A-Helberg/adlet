@@ -40,7 +40,8 @@
     "ember-resolver": "2.0.3",
     "ember-simple-auth": "1.1.0-beta.3",
     "http-status-name": "^2.0.0",
-    "string-humanize": "^1.0.0"
+    "string-humanize": "^1.0.0",
+    "loader.js": "^4.0.0"
   },
   "dependencies": {}
 }
