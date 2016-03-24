@@ -12,9 +12,7 @@ function bin2String(array) {
 export default DS.Serializer.extend({
   normalizeResponse: function(store, type, payload, id, requestType) {
     var jsonapiPayload = {};
-
     if (requestType === "findAll") {
-      payload = payload['Contents'];
       jsonapiPayload.data = [];
       payload.forEach(function(element) {
         var resource = {};
@@ -25,12 +23,10 @@ export default DS.Serializer.extend({
         jsonapiPayload.data.pushObject(resource);
       });
     } else if (requestType === "find") {
+      // TODO: Json-Api ify
       payload['body'] = bin2String(payload['Body']);
     }
 
-    if (requestType !== 'findAll') {
-      payload['id'] = id;
-    }
 
     return jsonapiPayload;
   }
