@@ -1,10 +1,8 @@
-<div class="container">
-  {{#each model as |article|}}
-    <div>
-      <h1 class="article__title"> {{article.id}}</h1>
-    </div>
+{{#each model as |article|}}
+  <div class="article">
+    <h1 class="article__title"> {{article.id}}</h1>
     <div class="article__body">
       {{format-markdown article.body}}
     </div>
-  {{/each}}
-</div>
+  </div>
+{{/each}}
