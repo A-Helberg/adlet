@@ -24,7 +24,7 @@ test('visiting /', function(assert) {
   andThen(function() {
     assert.equal(currentURL(), '/');
     var body = find(".application__content").text();
-    assert.equal(body.includes("Article1"), true, "The page should display Article 1");
-    assert.equal(body.includes("Article2"), true, "The page should display Article 2");
+    assert.equal(body.indexOf("Article1") !== -1, true, "The page should display Article 1");
+    assert.equal(body.indexOf("Article2") !== -1, true, "The page should display Article 2");
   });
 });
