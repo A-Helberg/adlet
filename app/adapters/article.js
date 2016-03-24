@@ -20,6 +20,7 @@ export default DS.Adapter.extend({
           if (err) {
             reject(err);
           }
+          data.Key = params.Key;
           resolve(data);
         });
       } else {
@@ -84,6 +85,17 @@ export default DS.Adapter.extend({
   findAll: function(){
     var params = this.params();
 
-    return this.apiPromise('listObjects', params);
+    return new Ember.RSVP.Promise((resolve, reject) => {
+      this.apiPromise('listObjects', params).then((data) => {
+        var objects = [];
+        data.Contents.forEach((object) => {
+          var params = this.params();
+          params.Key = object.Key;
+          objects.pushObject(this.apiPromise('getObject', params));
+        });
+        resolve(Ember.RSVP.Promise.all(objects));
+      });
+    });
+
   }
 });
