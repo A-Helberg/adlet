@@ -94,6 +94,8 @@ export default DS.Adapter.extend({
           objects.pushObject(this.apiPromise('getObject', params));
         });
         resolve(Ember.RSVP.Promise.all(objects));
+      }, (reason) => {
+        reject(reason);
       });
     });
 
