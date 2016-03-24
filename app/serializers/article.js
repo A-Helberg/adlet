@@ -1,12 +1,9 @@
 import DS from "ember-data";
-import UTF8 from "npm:utf-8";
 
-function bin2String(array) {
-  if (array === undefined){
-    return "";
-  } else {
-    return UTF8.getStringFromBytes(array);
-  }
+function bin2String(uintArray) {
+  var encodedString = String.fromCharCode.apply(null, uintArray),
+      decodedString = decodeURIComponent((encodedString));
+  return decodedString;
 }
 
 export default DS.Serializer.extend({
