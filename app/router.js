@@ -11,7 +11,7 @@ Router.map(function() {
   this.route('admin', function() {
     this.route('articles', function() {
       this.route('new');
-      this.resource('article', { path: ':article_id' }, function() {
+      this.route('article', { path: ':article_id' }, function() {
         this.route('edit');
       });
     });
