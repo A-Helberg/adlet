@@ -10,12 +10,19 @@ function bin2String(array) {
 }
 
 export default DS.Serializer.extend({
-  extract: function(store, type, payload, id, requestType) {
+  normalizeResponse: function(store, type, payload, id, requestType) {
+    var jsonapiPayload = {};
+
     if (requestType === "findAll") {
       payload = payload['Contents'];
+      jsonapiPayload.data = [];
       payload.forEach(function(element) {
-        element['id'] = element['Key'];
-        element['body'] = bin2String(element['Body']);
+        var resource = {};
+        resource.id = element['Key'];
+        resource.type = "article";
+        resource.attributes = {};
+        resource.attributes.body = bin2String(element['Body']);
+        jsonapiPayload.data.pushObject(resource);
       });
     } else if (requestType === "find") {
       payload['body'] = bin2String(payload['Body']);
@@ -25,6 +32,6 @@ export default DS.Serializer.extend({
       payload['id'] = id;
     }
 
-    return payload;
+    return jsonapiPayload;
   }
 });
