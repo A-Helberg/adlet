@@ -9,7 +9,7 @@ export default DS.Adapter.extend({
     return this.get('s3').listAll();
   },
 
-  findRecord(store, type, id, snapshot){
+  findRecord(store, type, id){
     return this.get('s3').find(id);
   }
 });
