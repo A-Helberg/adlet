@@ -1,6 +1,6 @@
 {{#each model as |article|}}
   <div class="article">
-    <h1 class="article__title"> {{article.id}}</h1>
+    <h1 class="article__title">{{#link-to 'read-article' article}} {{article.id}} {{/link-to}}</h1>
     <div class="article__body">
       {{format-markdown article.body}}
     </div>
