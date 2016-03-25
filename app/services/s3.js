@@ -66,5 +66,11 @@ export default Ember.Service.extend({
         reject(reason);
       });
     });
+  },
+
+  find(id) {
+    var params = this.params();
+    params.Key = id;
+    return this.apiPromise('getObject', params);
   }
 });
