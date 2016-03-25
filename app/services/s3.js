@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import AWS from 'npm:aws-sdk';
+import ENV from 'adlet/config/environment';
 
 export default Ember.Service.extend({
   params: function(){
@@ -7,7 +8,29 @@ export default Ember.Service.extend({
       Bucket: 'am-testblog', /* required */
     };
   },
+
+  readOnlyKeysPresent() {
+    if(!ENV.ReadOnlyAccessKeyID){
+      console.error("Your do not have a read only Access Key ID configured, check your environment.");
+    }
+    if (!ENV.ReadOnlySecretAccessKey) {
+      console.error("You do not have a read only Secret Access Key configured, check your environment.");
+    }
+    return (!!ENV.ReadOnlyAccessKeyID) && (!!ENV.ReadOnlySecretAccessKey);
+  },
+
+  authenticate() {
+    if (this.readOnlyKeysPresent()) {
+      let credentials = AWS.config.credentials;
+      if (credentials == null || (credentials.accessKeyId === '' || credentials.secretAccessKey === '')){
+          AWS.config.update({'accessKeyId': ENV.ReadOnlyAccessKeyID , 'secretAccessKey': ENV.ReadOnlySecretAccessKey});
+      }
+    }
+  },
+
   apiPromise: function(awsFunction, params){
+    this.authenticate();
+
     var s3 = new AWS.S3({region: 'us-west-2', maxRetries: 5});
 
     return new Ember.RSVP.Promise(function(resolve, reject){
