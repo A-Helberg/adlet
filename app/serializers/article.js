@@ -7,23 +7,26 @@ function bin2String(uintArray) {
 }
 
 export default DS.Serializer.extend({
-  normalizeResponse: function(store, type, payload, id, requestType) {
+  resource(id, body) {
+    var resource = {};
+    resource.id = id;
+    resource.type = "article";
+    resource.attributes = {};
+    resource.attributes.body = bin2String(body);
+    return resource;
+  },
+
+  normalizeResponse(store, type, payload, id, requestType) {
     var jsonapiPayload = {};
+
     if (requestType === "findAll") {
       jsonapiPayload.data = [];
       payload.forEach(function(element) {
-        var resource = {};
-        resource.id = element['Key'];
-        resource.type = "article";
-        resource.attributes = {};
-        resource.attributes.body = bin2String(element['Body']);
-        jsonapiPayload.data.pushObject(resource);
+        jsonapiPayload.data.pushObject(this.resource(element.Key, element.Body));
       });
-    } else if (requestType === "find") {
-      // TODO: Json-Api ify
-      payload['body'] = bin2String(payload['Body']);
+    } else if (requestType === "findRecord") {
+      jsonapiPayload.data = this.resource(payload.Key, payload.Body);
     }
-
 
     return jsonapiPayload;
   }
