@@ -3,7 +3,7 @@ import AWS from 'npm:aws-sdk';
 import ENV from 'adlet/config/environment';
 
 export default Ember.Service.extend({
-  params: function(){
+  params() {
     return {
       Bucket: 'am-testblog', /* required */
     };
@@ -28,7 +28,7 @@ export default Ember.Service.extend({
     }
   },
 
-  apiPromise: function(awsFunction, params){
+  apiPromise(awsFunction, params) {
     this.authenticate();
 
     var s3 = new AWS.S3({region: 'us-west-2', maxRetries: 5});
@@ -50,7 +50,7 @@ export default Ember.Service.extend({
     });
   },
 
-  listAll: function() {
+  listAll() {
     var params = this.params();
 
     return new Ember.RSVP.Promise((resolve, reject) => {
