@@ -5,7 +5,7 @@ export default DS.Adapter.extend({
 
   s3: Ember.inject.service(),
 
-  findAll: function(){
+  findAll(){
     return this.get('s3').listAll();
   }
 });
