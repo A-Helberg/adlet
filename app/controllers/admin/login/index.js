@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   authenticator: 'authenticator:amazon-authenticator',
+  session: Ember.inject.service(),
+
   actions: {
     login: function() {
       var _this = this;

@@ -8,6 +8,12 @@ module.exports = function(environment) {
     locationType: 'auto',
     ReadOnlyAccessKeyID: 'AKIAJ4XB57FZCE3VTPMA',
     ReadOnlySecretAccessKey: '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',
+    aws: {
+      Region: 'us-wes-2'
+    },
+    s3: {
+      Bucket: 'am-testblog'
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -19,6 +25,12 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     }
+  };
+
+  ENV['ember-simple-auth'] = {
+    authenticationRoute: 'admin.login',
+    routeIfAlreadyAuthenticated: 'admin.articles',
+    routeAfterAuthentication: 'admin'
   };
 
   if (environment === 'development') {
