@@ -1,13 +1,36 @@
 import Ember from 'ember';
 import AWS from 'npm:aws-sdk';
+import ENV from 'adlet/config/environment';
 
 export default Ember.Service.extend({
-  params: function(){
+  params() {
     return {
       Bucket: 'am-testblog', /* required */
     };
   },
-  apiPromise: function(awsFunction, params){
+
+  readOnlyKeysPresent() {
+    if(!ENV.ReadOnlyAccessKeyID){
+      console.error("Your do not have a read only Access Key ID configured, check your environment.");
+    }
+    if (!ENV.ReadOnlySecretAccessKey) {
+      console.error("You do not have a read only Secret Access Key configured, check your environment.");
+    }
+    return (!!ENV.ReadOnlyAccessKeyID) && (!!ENV.ReadOnlySecretAccessKey);
+  },
+
+  authenticate() {
+    if (this.readOnlyKeysPresent()) {
+      let credentials = AWS.config.credentials;
+      if (credentials == null || (credentials.accessKeyId === '' || credentials.secretAccessKey === '')){
+          AWS.config.update({'accessKeyId': ENV.ReadOnlyAccessKeyID , 'secretAccessKey': ENV.ReadOnlySecretAccessKey});
+      }
+    }
+  },
+
+  apiPromise(awsFunction, params) {
+    this.authenticate();
+
     var s3 = new AWS.S3({region: 'us-west-2', maxRetries: 5});
 
     return new Ember.RSVP.Promise(function(resolve, reject){
@@ -27,7 +50,7 @@ export default Ember.Service.extend({
     });
   },
 
-  listAll: function() {
+  listAll() {
     var params = this.params();
 
     return new Ember.RSVP.Promise((resolve, reject) => {
@@ -43,5 +66,11 @@ export default Ember.Service.extend({
         reject(reason);
       });
     });
+  },
+
+  find(id) {
+    var params = this.params();
+    params.Key = id;
+    return this.apiPromise('getObject', params);
   }
 });

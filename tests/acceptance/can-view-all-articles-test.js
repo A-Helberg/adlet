@@ -28,3 +28,21 @@ test('visiting /', function(assert) {
     assert.equal(body.indexOf("Article2") !== -1, true, "The page should display Article 2");
   });
 });
+
+test('we can click through to view a specific article', function(assert) {
+  visit('/');
+
+
+  andThen(function() {
+    let article = find(".article")[0];
+    let articleTitle = this.$(article).find(".article__title");
+
+    this.$(articleTitle).find("a").click();
+  });
+
+  andThen(function() {
+    assert.equal(currentURL(), '/Article1');
+    assert.equal(find(".article__body").text().trim(), "My Sexy Beach Body!!!!");
+  });
+
+});
