@@ -17,10 +17,9 @@ export default Base.extend({
 
   refreshCredentials: function(credentialObject){
     return new Ember.RSVP.Promise(function(resolve, reject){
-      let oldCredentials = AWS.config.credentials;
       AWS.config.update({credentials: credentialObject});
       var s3 = new AWS.S3(ENV.aws);
-      s3.listObjects(ENV.s3, function(err, data){
+      s3.listObjects(ENV.s3, function(err){
         if(err) {
           reject(err);
         }
