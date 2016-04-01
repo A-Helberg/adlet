@@ -1,0 +1,11 @@
+  <section class="admin-login">
+    <h1>Welcome to Adlet</h1>
+    <h2>Sign In</h2>
+    <p>
+      {{input placeholder='Access Key ID' value=accessKeyId class="admin-login__akid"}}
+    </p>
+    <p>
+      {{input placeholder='Secret Access Key' value=secretAccessKey class="admin-login__sak"}}
+    </p>
+    <button class="admin-login__login" {{action 'login'}}>Sign In</button>
+  </section>
