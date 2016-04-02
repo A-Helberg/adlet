@@ -72,5 +72,24 @@ export default Ember.Service.extend({
     var params = this.params();
     params.Key = id;
     return this.apiPromise('getObject', params);
+  },
+
+  update(id, body) {
+    var params = this.params();
+    params.Key = id;
+    params.Body = body;
+    return new Ember.RSVP.Promise( (resolve, reject) => {
+      this.apiPromise('putObject', params).then(
+        () => {
+          this.find(id).then(
+            (data) => {
+              resolve(data);
+            },
+            (error) => { reject(error); }
+          );
+        },
+        (error) => { reject(error); }
+      );
+    });
   }
 });
