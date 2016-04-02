@@ -5,11 +5,15 @@ export default DS.Adapter.extend({
 
   s3: Ember.inject.service(),
 
-  findAll(){
+  findAll() {
     return this.get('s3').listAll();
   },
 
-  findRecord(store, type, id){
+  findRecord(store, type, id) {
     return this.get('s3').find(id);
+  },
+
+  updateRecord(store, type, snapshot) {
+    return this.get('s3').update(snapshot.id, snapshot.attributes('body').body);
   }
 });
