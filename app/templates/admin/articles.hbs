@@ -6,7 +6,7 @@
 
     <div class="admin-article-list">
       {{#each model as |article|}}
-        {{#link-to 'admin.articles.edit' article tagName='li' }}
+        {{#link-to 'admin.articles.edit' article tagName='li' class="admin-article__link" }}
           {{ article.id }}
         {{/link-to}}
       {{/each}}
