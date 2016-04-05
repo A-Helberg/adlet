@@ -6,6 +6,11 @@ export default Ember.Controller.extend({
       this.get('model').save().then(() => {
         this.transitionToRoute('admin.articles');
       });
+    },
+    delete() {
+      this.get('model').destroyRecord().then(() => {
+        this.transitionToRoute('admin.articles');
+      });
     }
   }
 });
