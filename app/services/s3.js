@@ -91,5 +91,11 @@ export default Ember.Service.extend({
         (error) => { reject(error); }
       );
     });
+  },
+
+  delete(id) {
+    var params = this.params();
+    params.Key = id;
+    return this.apiPromise('deleteObject', params);
   }
 });
