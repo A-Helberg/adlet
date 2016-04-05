@@ -4,11 +4,13 @@
       New Article
     {{/link-to}}
 
-    {{#each article in model }}
-      {{#link-to 'article.index' article tagName='li' class="list-group-item articles-menu__item"}}
-        {{ article.id }}
-      {{/link-to}}
-    {{/each}}
+    <div class="admin-article-list">
+      {{#each model as |article|}}
+        {{#link-to 'admin.articles.edit' article tagName='li' class="admin-article__link" }}
+          {{ article.id }}
+        {{/link-to}}
+      {{/each}}
+    </div>
   </ul>
 </div>
 

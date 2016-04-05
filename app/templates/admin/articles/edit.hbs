@@ -1,3 +1,10 @@
+<div>
+  <h1 class="article__title"> {{model.id}}
+    <small class="pull-right">
+      <button class="btn btn-danger " {{action 'delete'}}>Delete</button>
+    </small>
+  </h1>
+</div>
 <div class="col-md-6">
   <p>
   <span {{bind-attr class="errors.id.length:has-error"}}>
@@ -11,7 +18,7 @@
   {{#if errors.id}}
     <button class="btn btn-primary pull-right disabled">Save</button>
   {{else}}
-    <button class="btn btn-primary pull-right" {{action 'save'}}>Save</button>
+    <button class="btn btn-primary pull-right admin-article__save" {{action 'save'}}>Save</button>
   {{/if}}
 </div>
 <div class="col-md-6">

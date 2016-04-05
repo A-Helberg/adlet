@@ -11,9 +11,7 @@ Router.map(function() {
     this.route('login', function() {});
     this.route('articles', function() {
       this.route('new');
-      this.route('article', { path: ':article_id' }, function() {
-        this.route('edit');
-      });
+      this.route('edit', { path: ':article_id' });
     });
   });
 

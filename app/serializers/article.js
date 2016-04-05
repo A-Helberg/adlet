@@ -24,7 +24,7 @@ export default DS.Serializer.extend({
       payload.forEach((element) => {
         jsonapiPayload.data.pushObject(this.resource(element.Key, element.Body));
       });
-    } else if (requestType === "findRecord") {
+    } else {
       jsonapiPayload.data = this.resource(payload.Key, payload.Body);
     }
 
