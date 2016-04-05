@@ -15,5 +15,9 @@ export default DS.Adapter.extend({
 
   updateRecord(store, type, snapshot) {
     return this.get('s3').update(snapshot.id, snapshot.attributes('body').body);
+  },
+
+  createRecord(store, type, snapshot) {
+    return this.get('s3').update(snapshot.id, snapshot.attributes('body').body);
   }
 });
