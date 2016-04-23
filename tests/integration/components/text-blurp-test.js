@@ -8,17 +8,16 @@ moduleForComponent('text-blurp', 'Integration | Component | text blurp', {
 test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
+  let body =   "a a a a a a a a a a " +
+               "a a a a a a a a a a " +
+               "a a a a a a a a a a " +
+               "a a a a a a a a a a " +
+               "a a a a a a a a a a " +
+               "a a a a a a a a a a ";
+  this.set('body', body);
+  this.render(hbs`{{text-blurp text=body}}`);
 
-  this.render(hbs`{{text-blurp}}`);
+  let numberOfChars = ((50*2) -1);
+  assert.equal(this.$().text().trim().length, numberOfChars , "I trims the text to 50 words");
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#text-blurp}}
-      template block text
-    {{/text-blurp}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
 });
