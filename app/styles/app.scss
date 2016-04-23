@@ -1,29 +1,10 @@
+@import 'colors';
+@import 'layout';
+@import 'article_excerpt';
 // * {
 //   border: 1px solid red !important;
 // }
 
-.article {
-  position: relative;
-  margin: 4rem auto;
-  max-width: 70%;
-}
-
-.footer {
-  position: relative;
-  margin: 4rem auto 0px auto;
-  max-width: 70%;
-  height: 100%;
-}
-
-.footer__slogan {
-  display: inline-block;
-}
-
-.footer__slogan__logo {
-  vertical-align: middle;
-  margin-left: -25px;
-  margin-top: 8px;
-}
 
 .loader {
   position: relative;
@@ -34,4 +15,13 @@
 
 body {
   font-family: 'CabinRegular';
+  color: $body-color;
+}
+
+a {
+  color: $link-color;
+
+  &:hover {
+    color: darken( $link-color, 30% );
+  }
 }
