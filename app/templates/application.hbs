@@ -1,28 +1,28 @@
+{{#if session.isAuthenticated}}
 <nav>
-  <ul>
+  <ul class="menu">
     <li>
       {{#link-to 'admin.articles' class="navbar__item"}}
         Articles
       {{/link-to}}
     </li>
-  </ul>
-  <ul>
     <li>
-      {{#if session.isAuthenticated}}
-        <a {{ action 'invalidateSession' }}>Logout</a>
-      {{else}}
-        {{#link-to 'admin.login'}}Login{{/link-to}}
-      {{/if}}
+      <a {{ action 'invalidateSession' }}>Logout</a>
     </li>
   </ul>
 </nav>
-<div class="application__content">
-  {{outlet}}
-</div>
+{{/if}}
 
+{{outlet}}
 
-<footer>
-  <img class="footer__logo" src="assets/images/logo-dark.png">
-  <span class="footer__text">is proudly open-source software © 2015</span>
+<footer class="footer">
+  <span class="footer__slogan">
+    powered by <img class="footer__slogan__logo" src="assets/images/logo-dark.png">
+  </span>
+  {{#if session.isAuthenticated}}
+    <a {{ action 'invalidateSession' }}>Logout</a>
+  {{else}}
+    {{#link-to 'admin.login'}}Login{{/link-to}}
+  {{/if}}
 </footer>
 
