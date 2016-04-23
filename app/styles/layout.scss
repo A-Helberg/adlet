@@ -3,14 +3,16 @@
   margin: 4rem auto 0px auto;
   max-width: 70%;
   height: 100%;
+
+  &__slogan {
+    display: inline-block;
+
+    &__logo {
+      vertical-align: middle;
+      margin-left: -25px;
+      margin-top: 8px;
+    }
+  }
+
 }
 
-.footer__slogan {
-  display: inline-block;
-}
-
-.footer__slogan__logo {
-  vertical-align: middle;
-  margin-left: -25px;
-  margin-top: 8px;
-}
