@@ -1,0 +1,18 @@
+.articleExcerpt {
+  position: relative;
+  margin: 4rem auto;
+  max-width: 70%;
+
+  &__title {
+    a {
+      color: $heading-color;
+      text-decoration: none;
+      font-size: 2em;
+      font-weight: lighter;
+
+      &:hover {
+        color: $heading-color;
+      }
+    }
+  }
+}

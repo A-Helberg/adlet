@@ -23,9 +23,12 @@ test('visiting /', function(assert) {
 
   andThen(function() {
     assert.equal(currentURL(), '/');
-    var body = find(".application__content").text();
-    assert.equal(body.indexOf("Article1") !== -1, true, "The page should display Article 1");
-    assert.equal(body.indexOf("Article2") !== -1, true, "The page should display Article 2");
+    const articles = find(".articleExcerpt");
+    let article1 = this.$(articles[0]);
+    let article2 = this.$(articles[1]);
+
+    assert.equal(article1.text().indexOf("Article1") !== -1, true, "The page should display Article 1");
+    assert.equal(article2.text().indexOf("Article2") !== -1, true, "The page should display Article 2");
   });
 });
 
@@ -34,8 +37,8 @@ test('we can click through to view a specific article', function(assert) {
 
 
   andThen(function() {
-    let article = find(".article")[0];
-    let articleTitle = this.$(article).find(".article__title");
+    let article = find(".articleExcerpt")[0];
+    let articleTitle = this.$(article).find(".articleExcerpt__title");
 
     this.$(articleTitle).find("a").click();
   });
