@@ -1,7 +1,12 @@
-$brand-color: #697382; //Base text color
-$base-color: rgba(46, 48, 58, 0.96); //Brand specific color
+$brand-color: #697382; //Brand specific color
 
+$brand-hue: hue($brand-color);
+$brand-saturation: saturation($brand-color);
+$brand-lightness: lightness($brand-color);
+
+$base-color: rgba(46, 48, 58, 0.96); //Base text color
 $heading-color: darken( $base-color, 50% );
 $body-color: $base-color;
 $link-color: $brand-color;
 $accent-color: lighten( $base-color, 70% );
+$active-article-color: hsl(80, $brand-saturation, $brand-lightness);

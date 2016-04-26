@@ -24,6 +24,11 @@
     a {
       color: $body-color;
     }
+
+    &--editing {
+      border-left: 3px solid;
+      border-left-color: $active-article-color;
+    }
   }
 
   &__heading {
