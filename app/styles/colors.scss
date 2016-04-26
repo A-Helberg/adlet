@@ -4,3 +4,4 @@ $base-color: rgba(46, 48, 58, 0.96); //Brand specific color
 $heading-color: darken( $base-color, 50% );
 $body-color: $base-color;
 $link-color: $brand-color;
+$accent-color: lighten( $base-color, 70% );
