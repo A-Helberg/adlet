@@ -23,6 +23,7 @@
 body {
   font-family: 'CabinRegular';
   color: $body-color;
+  margin: 3px;
 }
 
 p::selection, h1::selection, h2::selection, h3::selection, h4::selection, h5::selection, h6::selection {
