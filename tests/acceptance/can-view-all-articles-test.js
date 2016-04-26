@@ -32,20 +32,3 @@ test('visiting /', function(assert) {
   });
 });
 
-test('we can click through to view a specific article', function(assert) {
-  visit('/');
-
-
-  andThen(function() {
-    let article = find(".articleExcerpt")[0];
-    let articleTitle = this.$(article).find(".articleExcerpt__title");
-
-    this.$(articleTitle).find("a").click();
-  });
-
-  andThen(function() {
-    assert.equal(currentURL(), '/Article1');
-    assert.equal(find(".article__body").text().trim(), "My Sexy Beach Body!!!!");
-  });
-
-});
