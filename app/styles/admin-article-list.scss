@@ -1,0 +1,12 @@
+.admin-article-list {
+  max-width: 15rem;
+  order: -1;
+
+  &__new {
+    display: block;
+  }
+
+  &__link {
+    display: block;
+  }
+}

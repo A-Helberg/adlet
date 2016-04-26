@@ -1,9 +1,13 @@
 @import 'colors';
 @import 'layout';
-@import 'article_excerpt';
-// * {
-//   border: 1px solid red !important;
-// }
+@import 'article-excerpt';
+@import 'admin';
+@import 'admin-article-list';
+@import 'admin-article';
+
+ * {
+   border: 1px solid red !important;
+ }
 
 
 .loader {
