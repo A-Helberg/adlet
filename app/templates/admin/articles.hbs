@@ -9,11 +9,11 @@
     {{/link-to}}
     <div class="admin-article-list">
       {{#each model as |article|}}
-        <li class="admin-article-list__link {{ if article.isEditing "admin-article-list__link--editing" }}" >
-          {{#link-to 'admin.articles.edit' article  }}
+          {{#link-to 'admin.articles.edit' article class="admin-article-list__link"  }}
+        <li class="admin-article-list__link__item {{ if article.isEditing "admin-article-list__link__item--editing" }}" >
             {{ article.id }}
-          {{/link-to}}
         </li>
+          {{/link-to}}
       {{/each}}
     </div>
   </section>

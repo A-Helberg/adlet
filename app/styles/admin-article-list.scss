@@ -2,14 +2,6 @@
   order: 1;
   flex-basis: 20%;
 
-  li {
-    list-style-type: none;
-
-    a {
-      text-decoration: none;
-    }
-  }
-
   &__new {
     text-decoration: none;
     text-align: center;
@@ -18,17 +10,21 @@
   }
 
   &__link {
-    border-bottom: $accent-color 1px solid;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    a {
-      color: $body-color;
+    color: $body-color;
+    text-decoration: none;
+
+    &__item {
+      border-bottom: $accent-color 1px solid;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      list-style-type: none;
+
+      &--editing {
+        border-left: 3px solid;
+        border-left-color: $active-article-color;
+      }
     }
 
-    &--editing {
-      border-left: 3px solid;
-      border-left-color: $active-article-color;
-    }
   }
 
   &__heading {
