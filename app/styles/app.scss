@@ -25,6 +25,15 @@ body {
   color: $body-color;
 }
 
+p::selection, h1::selection, h2::selection, h3::selection, h4::selection, h5::selection, h6::selection {
+  background-color: $brand-color;
+}
+
+a::selection {
+  color: $body-color;
+  background-color: $brand-color;
+}
+
 a {
   color: $link-color;
 
