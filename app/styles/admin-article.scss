@@ -1,6 +1,6 @@
 .admin-article {
   margin: auto 2rem;
-  overflow: hidden;
-  order: 1;
-  width: 100%;
+  order: 2;
+  flex-shrink: 3;
+  flex-basis: 80%;
 }

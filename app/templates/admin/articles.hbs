@@ -1,15 +1,19 @@
 <section class="admin">
 
   <section class="admin-article-list">
-    <header>Articles</header>
+    <header class="admin-article-list__heading">
+      <h3>Articles</h3>
+    </header>
     {{#link-to 'admin.articles.new' class="admin-article-list__new"}}
       New Article
     {{/link-to}}
     <div class="admin-article-list">
       {{#each model as |article|}}
-        {{#link-to 'admin.articles.edit' article class="admin-article-list__link" }}
-          {{ article.id }}
-        {{/link-to}}
+        <li class="admin-article-list__link">
+          {{#link-to 'admin.articles.edit' article  }}
+            {{ article.id }}
+          {{/link-to}}
+        </li>
       {{/each}}
     </div>
   </section>
