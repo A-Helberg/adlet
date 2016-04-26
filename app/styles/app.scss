@@ -1,7 +1,12 @@
 @import 'colors';
 @import 'layout';
-@import 'article_excerpt';
+
+@import 'article-excerpt';
 @import 'article';
+
+@import 'admin';
+@import 'admin-article-list';
+@import 'admin-article';
 
 // Use this to do some css debugging
 // * {
@@ -18,6 +23,16 @@
 body {
   font-family: 'CabinRegular';
   color: $body-color;
+  margin: 3px;
+}
+
+p::selection, h1::selection, h2::selection, h3::selection, h4::selection, h5::selection, h6::selection {
+  background-color: $brand-color;
+}
+
+a::selection {
+  color: $body-color;
+  background-color: $brand-color;
 }
 
 a {
