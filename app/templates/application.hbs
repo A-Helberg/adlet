@@ -1,18 +1,3 @@
-{{#if session.isAuthenticated}}
-<nav>
-  <ul class="menu">
-    <li>
-      {{#link-to 'admin.articles' class="navbar__item"}}
-        Articles
-      {{/link-to}}
-    </li>
-    <li>
-      <a {{ action 'invalidateSession' }}>Logout</a>
-    </li>
-  </ul>
-</nav>
-{{/if}}
-
 {{outlet}}
 
 <footer class="footer">
