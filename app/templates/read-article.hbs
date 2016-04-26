@@ -1,4 +1,8 @@
-<h1 class="article__title">{{model.id}}</h1>
-<div class="article__body">
-  {{format-markdown model.body}}
-</div>
+<article class="article">
+  <header>
+    <h1 class="article__title">{{model.id}}</h1>
+  </header>
+  <section class="article__body">
+    {{format-markdown model.body}}
+  </section>
+</article>
