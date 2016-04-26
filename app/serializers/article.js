@@ -1,30 +1,33 @@
 import DS from "ember-data";
-import UTF8 from "npm:utf-8";
 
-function bin2String(array) {
-  if (array === undefined){
-    return "";
-  } else {
-    return UTF8.getStringFromBytes(array);
-  }
+function bin2String(uintArray) {
+  var encodedString = String.fromCharCode.apply(null, uintArray),
+      decodedString = decodeURIComponent((encodedString));
+  return decodedString;
 }
 
 export default DS.Serializer.extend({
-  extract: function(store, type, payload, id, requestType) {
+  resource(id, body) {
+    var resource = {};
+    resource.id = id;
+    resource.type = "article";
+    resource.attributes = {};
+    resource.attributes.body = bin2String(body);
+    return resource;
+  },
+
+  normalizeResponse(store, type, payload, id, requestType) {
+    var jsonapiPayload = {};
+
     if (requestType === "findAll") {
-      payload = payload['Contents'];
-      payload.forEach(function(element) {
-        element['id'] = element['Key'];
-        element['body'] = bin2String(element['Body']);
+      jsonapiPayload.data = [];
+      payload.forEach((element) => {
+        jsonapiPayload.data.pushObject(this.resource(element.Key, element.Body));
       });
-    } else if (requestType === "find") {
-      payload['body'] = bin2String(payload['Body']);
+    } else {
+      jsonapiPayload.data = this.resource(payload.Key, payload.Body);
     }
 
-    if (requestType !== 'findAll') {
-      payload['id'] = id;
-    }
-
-    return payload;
+    return jsonapiPayload;
   }
 });

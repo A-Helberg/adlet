@@ -1,0 +1,29 @@
+@import 'colors';
+@import 'layout';
+@import 'article_excerpt';
+@import 'article';
+
+// Use this to do some css debugging
+// * {
+//   border: 1px solid red !important;
+// }
+
+.loader {
+  position: relative;
+  margin: 4rem auto;
+  max-width: 50%;
+  text-align: center;
+}
+
+body {
+  font-family: 'CabinRegular';
+  color: $body-color;
+}
+
+a {
+  color: $link-color;
+
+  &:hover {
+    color: darken( $link-color, 30% );
+  }
+}

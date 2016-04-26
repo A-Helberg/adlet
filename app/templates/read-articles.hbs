@@ -1,10 +1,11 @@
-<div class="container">
-  {{#each article in model }}
-    <div>
-      <h1 class="article__title"> {{article.id}}</h1>
-    </div>
-    <div class="article__body">
-      {{format-markdown article.body}}
-    </div>
-  {{/each}}
-</div>
+{{#each model as |article|}}
+  <article class="articleExcerpt">
+    <header>
+      <h1 class="articleExcerpt__title">{{#link-to 'read-article' article}} {{article.id}} {{/link-to}}</h1>
+    </header>
+    <section class="articleExcerpt__blurp">
+      <p>{{text-blurp text=article.body}} </p>
+      {{#link-to 'read-article' article rel="Read More!"}}Read more...{{/link-to}}
+    </section>
+  </article>
+{{/each}}

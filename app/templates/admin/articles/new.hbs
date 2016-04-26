@@ -1,18 +1,14 @@
 <div class="col-md-6" >
   <p>
   <span {{bind-attr class="errors.id.length:has-error"}}>
-    {{input value=model.id placeholder='Title' class="form-control"}}
+    {{input value=model.id placeholder='Title' class="admin-new-article__title"}}
     <span class="help-block">{{errors.id}}</span>
   </span>
   </p>
   <p>
-  {{textarea value=model.body placeholder='Body' rows="15" class="form-control article-edit__body"}}
+  {{textarea value=model.body placeholder='Body' rows="15" class="form-control admin-new-article__body"}}
   </p>
-  {{#if errors.id}}
-    <button class="btn btn-primary pull-right disabled">Save</button>
-  {{else}}
-    <button class="btn btn-primary pull-right" {{action 'save'}}>Save</button>
-  {{/if}}
+  <button class="admin-new-article__save" {{action 'save'}}>Save</button>
 </div>
 <div class="col-md-6">
   <h1>{{model.id}}</h1>
