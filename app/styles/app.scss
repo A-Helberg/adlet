@@ -1,14 +1,17 @@
 @import 'colors';
 @import 'layout';
+
 @import 'article-excerpt';
+@import 'article';
+
 @import 'admin';
 @import 'admin-article-list';
 @import 'admin-article';
 
+// Use this to do some css debugging
 // * {
 //   border: 1px solid red !important;
 // }
-
 
 .loader {
   position: relative;

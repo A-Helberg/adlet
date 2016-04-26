@@ -1,0 +1,14 @@
+.article {
+
+  position: relative;
+  margin: 4rem auto;
+  max-width: 70%;
+
+  &__title {
+    color: $heading-color;
+    text-decoration: none;
+    font-size: 4em;
+    font-weight: lighter;
+    text-align: center;
+  }
+}
