@@ -21,6 +21,9 @@
     border-bottom: $accent-color 1px solid;
     padding-top: 10px;
     padding-bottom: 10px;
+    a {
+      color: $body-color;
+    }
   }
 
   &__heading {
