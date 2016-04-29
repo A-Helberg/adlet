@@ -1,10 +1,13 @@
 <section class="article-edit">
   <article>
-    <header>
-      <h1 class="article-edit__title">
+    <header class="article-edit__heaedr">
+      <h1 class="article-edit__header__title">
         {{model.id}}
-        <button class="article-edit__delete" {{action 'delete'}}>Delete</button>
       </h1>
+      <nav class="article-edit__header__controls">
+        <button class="article-edit__header__controls__save" {{action 'save'}}>Save</button>
+        <button class="article-edit__header__controls__delete" {{action 'delete'}}>Delete</button>
+      </nav>
     </header>
     <section class="article-edit__body">
       {{textarea value=model.body placeholder='Body' rows="15" class="article-edit__body__input" }}
@@ -12,8 +15,5 @@
         {{format-markdown model.body}}
       </div>
     </section>
-    <footer class="article-edit__controls">
-      <button class="article-edit__save" {{action 'save'}}>Save</button>
-    </footer>
   </article>
 </section>
