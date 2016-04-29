@@ -1,17 +1,28 @@
-.articleExcerpt {
-  position: relative;
-  margin: 4rem auto;
+.articles {
+  display: flex;
+  flex-direction: column;
   max-width: 70%;
+  margin: 4rem auto;
 
-  &__title {
-    a {
-      color: $heading-color;
-      text-decoration: none;
-      font-size: 2em;
-      font-weight: lighter;
+  &__heading {
+    text-align: center;
+  }
 
-      &:hover {
+  .articleExcerpt {
+    position: relative;
+    margin: 1rem auto;
+    width: 100%;
+
+    &__title {
+      a {
         color: $heading-color;
+        text-decoration: none;
+        font-size: 2em;
+        font-weight: lighter;
+
+        &:hover {
+          color: $heading-color;
+        }
       }
     }
   }
