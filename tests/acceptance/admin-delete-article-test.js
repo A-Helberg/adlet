@@ -33,5 +33,5 @@ test('visiting /admin/articles/Article1 and deleting it', function(assert) {
     assert.equal(currentURL(), '/admin/articles/Article1');
   });
 
-  click(".admin-article__delete");
+  click(".article-edit__header__controls__delete");
 });
