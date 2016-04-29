@@ -23,10 +23,20 @@
   text-align: center;
 }
 
+html {
+  min-height: 100%;
+  height: 100%;
+}
+
 body {
   font-family: 'CabinRegular';
   color: $body-color;
-  margin: 3px;
+  margin: 0px;
+  min-height: 100%;
+
+  div {
+    min-height: 100vh;
+  }
 }
 
 p::selection, h1::selection, h2::selection, h3::selection, h4::selection, h5::selection, h6::selection {
