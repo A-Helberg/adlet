@@ -2,10 +2,11 @@
   display: flex;
   flex-direction: column;
   max-width: 70%;
-  margin: 4rem auto;
+  margin: 0px auto 4rem auto;
 
   &__heading {
     text-align: center;
+    font-size: 2.5rem;
   }
 
   .articleExcerpt {
