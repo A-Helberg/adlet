@@ -34,7 +34,7 @@ body {
   margin: 0px;
   min-height: 100%;
 
-  div {
+  > div {
     min-height: 100vh;
   }
 }
