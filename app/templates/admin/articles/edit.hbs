@@ -1,27 +1,19 @@
-<div>
-  <h1 class="article__title"> {{model.id}}
-    <small class="pull-right">
-      <button class="admin-article__delete" {{action 'delete'}}>Delete</button>
-    </small>
-  </h1>
-</div>
-<div class="col-md-6">
-  <p>
-  <span {{bind-attr class="errors.id.length:has-error"}}>
-    {{input value=model.id placeholder='Title' class="form-control"}}
-    <span class="help-block">{{errors.id}}</span>
-  </span>
-  </p>
-  <p>
-  {{textarea value=model.body placeholder='Body' rows="15" class="form-control article-edit__body"}}
-  </p>
-  {{#if errors.id}}
-    <button class="btn btn-primary pull-right disabled">Save</button>
-  {{else}}
-    <button class="btn btn-primary pull-right admin-article__save" {{action 'save'}}>Save</button>
-  {{/if}}
-</div>
-<div class="col-md-6">
-  <h1>{{model.id}}</h1>
-  {{format-markdown model.body}}
-</div>
+<section class="article-edit">
+  <article>
+    <header class="article-edit__heaedr">
+      <h1 class="article-edit__header__title">
+        {{model.id}}
+      </h1>
+      <nav class="article-edit__header__controls">
+        <button class="article-edit__header__controls__save" {{action 'save'}}>Save</button>
+        <button class="article-edit__header__controls__delete" {{action 'delete'}}>Delete</button>
+      </nav>
+    </header>
+    <section class="article-edit__body">
+      {{textarea value=model.body placeholder='Body' rows="15" class="article-edit__body__input" }}
+      <div class="article-edit__body__preview">
+        {{format-markdown model.body}}
+      </div>
+    </section>
+  </article>
+</section>

@@ -14,6 +14,7 @@ let s3Mock = Ember.Service.extend({
   update(id, body) {
     Ember.assert("we call update in the s3 Service with the correct id", id === "Article1");
     Ember.assert("we call update in the s3 Service with the correct body", body === "A new body!");
+
     return new Ember.RSVP.Promise(function (resolve){
       resolve({Key: id, Body: [65, 32, 110, 101, 119, 32, 98, 111, 100, 121, 33]});
     });
@@ -64,8 +65,8 @@ test('editing an article', function(assert) {
 
   visit('/admin/articles/Article1');
 
-  fillIn(".article-edit__body", "A new body!");
-  click(".admin-article__save");
+  fillIn(".article-edit__body__input", "A new body!");
+  click(".article-edit__header__controls__save");
 
   andThen(function() {
     assert.equal(currentURL(), '/admin/articles');
