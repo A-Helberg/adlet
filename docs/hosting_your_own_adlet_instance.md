@@ -20,11 +20,11 @@ See [Creating an Articles Bucket](/docs/creating_an_articles_bucket.md)
 
 See [Creating a Static Content Bucket](/docs/creating_a_static_content_bucket.mb)
 
-## Customizing the custom instance
+## Customizing the Adlet instance
 
 You will need to clone the repo locally so you can customize it to work with your settings.
 
-In the directory where you cloned Adlet, open `config/environment.js` file your favourite text editor.
+In the directory where you cloned Adlet, open the `config/environment.js` file your favourite text editor.
 
 In this file change the following fields with your own information from when you created your buckets
 
@@ -32,6 +32,8 @@ In this file change the following fields with your own information from when you
     * ReadOnlySecretAccessKey
     * Region
     * Bucket
+
+The bucket in this config file, should be your "contents" bucket.
 
 Additionally if you know SASS you can change some variables in the `app/styles/colors.scss` file, specifically, the `brand_color` variable to the main color of your site.
 
@@ -43,14 +45,14 @@ When you are done configuring Adlet run the following command
 ember build --environment production
 ```
 
-This will create a folder names dist, that contains all the production ready assets you will need for your own instance of adlet
+This will create a folder names dist, that contains all the production ready, and minified assets you will need for your own instance of adlet
 
 ## Uploading the static files
 
 You can now upload all the files in the dist directory to your static files bucket.
 
-If you now visit your static contents bucket's web url, you will have your very own instance of Adlet!
+If you now visit your static bucket's web url, you will have your very own instance of Adlet!
 
 ## Custom domain
 
-You probably want to use your own domain name too, but the configuration is outside the scope fo this document please see [Website hosting Custom Domain walkthrough](http://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-custom-domain-walkthrough.html)
+You probably want to use your own domain name too, but that configuration is outside the scope of this document please see [Website Hosting Custom Domain walkthrough](http://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-custom-domain-walkthrough.html) that explains how you can set this up.
