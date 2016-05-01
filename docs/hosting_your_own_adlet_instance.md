@@ -14,7 +14,7 @@ The one that has the same name as your domain will be where you put Adlet's stat
 
 ## Creating an Articles bucket
 
-See [Creating an Articles Bucket](/docs/creating_aws_keys.md)
+See [Creating an Articles Bucket](/docs/creating_an_articles_bucket.md)
 
 ## Creating a static content bucket
 
