@@ -12,7 +12,7 @@ Follow the instructions to create an account.
 
 # Creating a bucket
 
-AWS buckets are analogous to folders, you will only need one bucket per instance of Adlet that you want to run.
+AWS buckets are analogous to folders.
 
 Once you are logged in to the console, find the
 
