@@ -4,9 +4,7 @@ import ENV from 'adlet/config/environment';
 
 export default Ember.Service.extend({
   params() {
-    return {
-      Bucket: 'am-testblog', /* required */
-    };
+    return ENV.s3;
   },
 
   readOnlyKeysPresent() {
@@ -31,7 +29,7 @@ export default Ember.Service.extend({
   apiPromise(awsFunction, params) {
     this.authenticate();
 
-    var s3 = new AWS.S3({region: 'us-west-2', maxRetries: 5});
+    var s3 = new AWS.S3(ENV.aws);
 
     return new Ember.RSVP.Promise(function(resolve, reject){
       var apiFunction = s3[awsFunction];
