@@ -22,7 +22,7 @@ section choose S3, and then click on
 
 > Create Bucket
 
-Pick a bucket name, the domain name that Adlet will run on is a good bet, and choose the region that you want the bucket to be in. *Take note of the region you picked* as this will be needed later.
+Pick a bucket name, you should not use the domain name that Adlet will run on, because you will need this route for serving the static content, when setting up a domain name. Choose the region that you want the bucket to be in. *Take note of the region you picked* as this will be needed later.
 
 Then click on 
 
