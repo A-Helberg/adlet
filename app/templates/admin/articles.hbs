@@ -1,17 +1,24 @@
-<div class="col-md-2">
-  <ul class="list-group articles-menu">
-    {{#link-to 'admin.articles.new' tagName='li' class="list-group-item articles__new"}}
+<section class="admin">
+
+  <section class="admin-article-list">
+    <header class="admin-article-list__heading">
+      <h3>Articles</h3>
+    </header>
+    {{#link-to 'admin.articles.new' class="admin-article-list__new"}}
       New Article
     {{/link-to}}
+    <div class="admin-article-list">
+      {{#each model as |article|}}
+          {{#link-to 'admin.articles.edit' article class="admin-article-list__link"  }}
+        <li class="admin-article-list__link__item {{ if article.isEditing "admin-article-list__link__item--editing" }}" >
+            {{ article.id }}
+        </li>
+          {{/link-to}}
+      {{/each}}
+    </div>
+  </section>
 
-    {{#each article in model }}
-      {{#link-to 'article.index' article tagName='li' class="list-group-item articles-menu__item"}}
-        {{ article.id }}
-      {{/link-to}}
-    {{/each}}
-  </ul>
-</div>
-
-<div class="col-md-10">
-  {{outlet}}
-</div>
+  <section class="admin-article">
+    {{outlet}}
+  </section>
+</section>

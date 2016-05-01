@@ -1,7 +1,16 @@
 # Adlet [![Build Status](https://travis-ci.org/A-Helberg/adlet.svg)](https://travis-ci.org/A-Helberg/adlet)
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Adlet is a simple and elegant and open source blogging platform! But why not go with one of the many other bloggin platforms?
+
+Adlet was built from the ground up, keeping in mind it's main tennant, and that is super cheap hosting.
+
+As such adlet runs entirely on AWS S3, and that means hosting for as little as $0.03 per Gigabyte!!
+
+Currently Adlet is in a very early alpha stage, but check back for our new features!
+
+## Hosting your own Adlet
+
+See [hosting your own Adlet instance](/docs/hosting_your_own_adlet_instance.md)
 
 ## Prerequisites
 
@@ -12,42 +21,23 @@ You will need the following things properly installed on your computer.
 * [Bower](http://bower.io/)
 * [Ember CLI](http://www.ember-cli.com/)
 * [PhantomJS](http://phantomjs.org/)
+* [S3 Bucket and API Keys](https://aws.amazon.com/s3/)
 
 ## Installation
 
-* `git clone <repository-url>` this repository
+* `git clone https://github.com/A-Helberg/adlet` this repository
 * change into the new directory
 * `npm install`
 * `bower install`
 
 ## Running / Development
 
+In the `config/environment.js` file, add in your AWS details. Then run
+
 * `ember server`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
+* And visit your app at [http://localhost:4200](http://localhost:4200).
 
 ### Running Tests
 
 * `ember test`
 * `ember test --server`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://www.ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-

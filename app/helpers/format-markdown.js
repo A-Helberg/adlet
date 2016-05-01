@@ -1,7 +1,9 @@
 import Ember from 'ember';
-var showdown = new Showdown.converter();
+import Showdown from 'npm:showdown';
+var showdown = new Showdown.Converter();
 
-var formatMarkdown = Ember.HTMLBars.makeBoundHelper(function (arr) {
+export default Ember.Helper.extend({
+  compute: function (arr) {
     if (!arr || !arr.length) {
         return;
     }
@@ -21,6 +23,6 @@ var formatMarkdown = Ember.HTMLBars.makeBoundHelper(function (arr) {
 
 
     return Ember.String.htmlSafe(escapedhtml);
+  }
 });
 
-export default formatMarkdown;

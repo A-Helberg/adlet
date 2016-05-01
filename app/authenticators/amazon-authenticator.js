@@ -1,6 +1,7 @@
-import Base from 'simple-auth/authenticators/base';
+import Base from 'ember-simple-auth/authenticators/base';
 import Ember from 'ember';
 import AWS from 'npm:aws-sdk';
+import ENV from 'adlet/config/environment';
 
 export default Base.extend({
   restore: function(options) {
@@ -15,14 +16,13 @@ export default Base.extend({
   },
 
   refreshCredentials: function(credentialObject){
-    var credentials = new AWS.Credentials(credentialObject);
-
     return new Ember.RSVP.Promise(function(resolve, reject){
-      credentials.refresh(function(err) {
-        if (err) {
+      AWS.config.update({credentials: credentialObject});
+      var s3 = new AWS.S3(ENV.aws);
+      s3.listObjects(ENV.s3, function(err){
+        if(err) {
           reject(err);
         }
-        AWS.config.update({credentials: credentials});
         resolve(credentialObject);
       });
     });

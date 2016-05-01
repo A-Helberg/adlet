@@ -1,0 +1,12 @@
+<section class="admin-login">
+  <header class="admin-login__header">
+    <h1>Login</h1>
+  </header>
+  <section class="admin-login__input">
+      {{input placeholder='Access Key ID' value=accessKeyId class="admin-login__akid"}}
+      {{input placeholder='Secret Access Key' value=secretAccessKey class="admin-login__sak"}}
+  </section>
+  <nav class="admin-login__controls">
+    <button class="admin-login__login" {{action 'login'}}>Sign In</button>
+  </nav>
+</section>

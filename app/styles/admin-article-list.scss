@@ -1,0 +1,35 @@
+.admin-article-list {
+  order: 1;
+  flex-basis: 20%;
+
+  &__new {
+    text-decoration: none;
+    text-align: center;
+    margin: 15px auto;
+    display: block;
+  }
+
+  &__link {
+    color: $body-color;
+    text-decoration: none;
+
+    &__item {
+      border-bottom: $accent-color 1px solid;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      list-style-type: none;
+
+      &--editing {
+        border-left: 3px solid;
+        border-left-color: $active-article-color;
+      }
+    }
+
+  }
+
+  &__heading {
+    margin: 2rem;
+    text-align: center;
+
+  }
+}
