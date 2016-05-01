@@ -49,8 +49,7 @@ export default Ember.Service.extend({
   },
 
   listAll() {
-    var params = Ember.copy(this.params(), true);
-    params.Prefix = ENV.s3ArticlePrefix;
+    var params = this.params();
 
     return new Ember.RSVP.Promise((resolve, reject) => {
       this.apiPromise('listObjects', params).then((data) => {

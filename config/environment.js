@@ -14,8 +14,6 @@ module.exports = function(environment) {
     s3: {
       Bucket: 'am-testblog'
     },
-    s3ArticlePrefix: 'articles',
-
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
