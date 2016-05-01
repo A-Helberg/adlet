@@ -1,16 +1,4 @@
-# Creating AWS Keys
-
-To run adlet you will need to create 2 sets of API keys, one will be read only, so people can read your blog, and one that you as an admin will use to login and create new posts or articles.
-
-# AWS account
-
-The first thing you will need is an AWS account, if you don't already have one. Go to [https://aws.amazon.com](https://aws.amazon.com) and click on 
-
-> Sign In to the Console
-
-Follow the instructions to create an account.
-
-# Creating a bucket
+# Creating a Articles bucket
 
 AWS buckets are analogous to folders.
 
@@ -60,7 +48,7 @@ Then click on
 
 > Save
 
-# Creating your keys
+## Creating your keys
 
 No go back to the AWS console by clicking the cube in the top left section of the site.
 
@@ -98,7 +86,7 @@ Your two users will now be created, you can view their API keys, by expanding
 
 Save these details somewhere safe!
 
-# Creating permissions
+## Creating permissions
 
 Go back to the Identity & Access Management Page, click on Policies, and then Create Polcicy, then select create own policy. 
 
@@ -144,7 +132,7 @@ and then click create, follow the same steps to create a key for your admin user
 
 remember to change your bucket name.
 
-# Setting permissions for your users.
+## Setting permissions for your users.
 
 After creating your policies, you should see a list of all your policies. Let's attach those policies to the users.
 
@@ -163,7 +151,6 @@ Find the read only policy we created in the previous step and tick it's box. (Yo
 > Attach Policy
 
 Repeat the same steps for your admin user, but attach, the admin policy you created.
-
 
 That's it! You should now have the keys you need to set up Adlet, with the correct permissions.
 
