@@ -86,11 +86,23 @@ Your two users will now be created, you can view their API keys, by expanding
 
 Save these details somewhere safe!
 
-## Creating permissions
+### Creating permissions
 
-Go back to the Identity & Access Management Page, click on Policies, and then Create Polcicy, then select create own policy. 
+Go back to the Identity & Access Management Page, click on 
 
-First we will make a policy for read only access to our block Pick a descriptive name and optional description, once again, the names don't matter, but take note of what you pick, because we'll need it later on.
+> Policies
+
+and then
+
+> Create Polcicy
+
+and select
+
+> create own policy
+
+First we will make a policy for read only access to our our bucket.
+
+Pick a descriptive name and optional description, once again, the names don't matter, but take note of what you pick, because we'll need it later on.
 
 Copy the below into the Policy Document, but change the text `bucket_name` to your actual bucket name.
 
@@ -105,14 +117,18 @@ Copy the below into the Policy Document, but change the text `bucket_name` to yo
                 "s3:List*"
             ],
             "Resource": [
-                "arn:aws:s3:::iostream.co.za/*",
-                "arn:aws:s3:::iostream.co.za"
+                "arn:aws:s3:::bucket_name/*",
+                "arn:aws:s3:::bucket_name"
             ]
         }
     ]
 }
 ```
-and then click create, follow the same steps to create a key for your admin user, but this time use the code below for the admin policy
+and then click
+
+> create
+
+follow the same steps to create a polciy for your admin user, but this time use the code below for the admin policy
 
 ```
 {
@@ -136,7 +152,11 @@ remember to change your bucket name.
 
 After creating your policies, you should see a list of all your policies. Let's attach those policies to the users.
 
-Click on users in the lefthand panel, pick your read only user.
+Click on
+
+> users
+
+in the lefthand panel, and pick your read only user.
 
 Click on the tab that says
 
@@ -150,6 +170,7 @@ Find the read only policy we created in the previous step and tick it's box. (Yo
 
 > Attach Policy
 
+---
 Repeat the same steps for your admin user, but attach, the admin policy you created.
 
 That's it! You should now have the keys you need to set up Adlet, with the correct permissions.
