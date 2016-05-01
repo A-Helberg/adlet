@@ -51,7 +51,7 @@ test('visiting /admin/articles and clicking through to edit an article', functio
   click(".admin-article-list__link");
 
   andThen(function() {
-    assert.equal(currentURL(), '/admin/articles/Article2');
+    assert.equal(currentURL(), '/admin/articles/Article1');
   });
 });
 
