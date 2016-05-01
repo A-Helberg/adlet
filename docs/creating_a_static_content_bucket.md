@@ -80,3 +80,8 @@ Select the section named
 
 and fill in `index.html` for both the Index Document and Error Document fields.
 
+Then click on 
+
+> Save
+
+That's it! Your static content bucket is ready to be used.
