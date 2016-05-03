@@ -41,3 +41,6 @@ In the `config/environment.js` file, add in your AWS details. Then run
 
 * `ember test`
 * `ember test --server`
+
+## Stay Updated
+ Subscribe to our [mailing list](http://eepurl.com/bkKLNr) to receive updates about new & exciting features.
