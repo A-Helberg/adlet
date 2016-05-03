@@ -6,7 +6,7 @@ Adlet was built from the ground up, keeping in mind it's main tennant, and that 
 
 As such adlet runs entirely on AWS S3, and that means hosting for as little as $0.03 per Gigabyte!!
 
-Currently Adlet is in a very early alpha stage, but check back for our new features!
+Currently Adlet is in a very early alpha stage, but check back for our new features or [subscribe](http://eepurl.com/bkKLNr) for updates! 
 
 ## Hosting your own Adlet
 
@@ -41,3 +41,6 @@ In the `config/environment.js` file, add in your AWS details. Then run
 
 * `ember test`
 * `ember test --server`
+
+## Stay Updated
+ Subscribe to our [mailing list](http://eepurl.com/bkKLNr) to receive updates about new & exciting features.
