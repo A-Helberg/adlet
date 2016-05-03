@@ -5,8 +5,4 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model: function() {
     return this.store.createRecord('article');
   }
-
-  //deactivate: function() {
-  //  this.get('controller.content').rollback();
-  //}
 });
