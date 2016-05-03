@@ -4,18 +4,8 @@
   min-height: 100vh;
   justify-content: space-between;
 
-  .header {
-    order: 1;
-    align-self: flex-start;
-    width: 100%;
-    height: 25rem;
-    background-size: cover;
-    background-image: url('images/banner.png');
-
-  }
-
   .content {
-    order: 2;
+    order: 1;
     align-self: center;
     display: flex;
     width: 100%;
@@ -23,7 +13,7 @@
   }
 
   .footer {
-    order: 3;
+    order: 2;
     margin: 8px;
     align-self: center;
 
