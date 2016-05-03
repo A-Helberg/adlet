@@ -1,4 +1,4 @@
-$brand-color: #697382; //Brand specific color
+$brand-color: brand_color_from_banner(); //Brand specific color
 
 $brand-hue: hue($brand-color);
 $brand-saturation: saturation($brand-color);

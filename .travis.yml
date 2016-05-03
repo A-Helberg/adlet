@@ -17,6 +17,7 @@ before_install:
 install:
   - npm install
   - bower install
+  - sh -c "cd lib/banner-based-brand-color && npm install"
 
 script:
   - npm test

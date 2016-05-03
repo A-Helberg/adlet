@@ -1,0 +1,21 @@
+{
+  "name": "banner-based-brand-color",
+  "keywords": [
+    "ember-addon"
+  ],
+  "dependancies": {
+    "babel-plugin-htmlbars-inline-precompile": "0.0.5",
+    "ember-cli-babel": "5.1.6",
+    "ember-cli-htmlbars": "1.0.5",
+    "ember-cli-htmlbars-inline-precompile": "0.3.1",
+    "ember-cli-sass": "5.3.1"
+  },
+  "ember-addon": {
+    "before": "ember-cli-sass"
+  },
+  "devDependencies": {
+    "deasync": "^0.1.6",
+    "jimp": "^0.2.24",
+    "node-sass": "^3.6.0"
+  }
+}
