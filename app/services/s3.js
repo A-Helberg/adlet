@@ -4,7 +4,7 @@ import ENV from 'adlet/config/environment';
 
 export default Ember.Service.extend({
   params() {
-    return ENV.s3;
+    return Ember.copy(ENV.s3, true);
   },
 
   readOnlyKeysPresent() {
