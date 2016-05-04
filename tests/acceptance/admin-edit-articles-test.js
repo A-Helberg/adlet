@@ -52,3 +52,19 @@ test('editing an article', function(assert) {
 
 });
 
+test('editing an article shows a html preview of the articleBody', function(assert) {
+  authenticateSession(this.application, {data: "meh"});
+  AWS.config.update = function() {};
+
+  AWS.S3.prototype.listObjects = function(params, callback) {
+    callback.call(undefined, undefined, {Contents: []});
+  };
+
+  visit('/admin/articles/Article1');
+
+  andThen(function() {
+    assert.equal(find(".article-edit__body__preview").text().trim(), "My Sexy Beach Body!!!!");
+  });
+
+});
+

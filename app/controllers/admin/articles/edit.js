@@ -9,8 +9,10 @@ export default Ember.Controller.extend({
 
   actions: {
     save() {
-      this.get('model').save().then(() => {
-        this.transitionToRoute('admin.articles');
+      this.get('model.articleBody').then((articleBody) => {
+        articleBody.save().then(() => {
+          this.transitionToRoute('admin.articles');
+        });
       });
     },
     delete() {

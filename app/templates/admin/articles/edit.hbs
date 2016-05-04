@@ -10,9 +10,9 @@
       </nav>
     </header>
     <section class="article-edit__body">
-      {{textarea value=model.body placeholder='Body' rows="15" class="article-edit__body__input" }}
+      {{textarea value=model.articleBody.body placeholder='Body' rows="15" class="article-edit__body__input" }}
       <div class="article-edit__body__preview">
-        {{format-markdown model.body}}
+        {{format-markdown model.articleBody.body}}
       </div>
     </section>
   </article>
