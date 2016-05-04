@@ -10,11 +10,12 @@ export default DS.Serializer.extend({
   resource(id, body) {
     var resource = {};
     resource.id = id;
-    resource.type = "article";
+    resource.type = "article-body";
     resource.attributes = {};
+    resource.attributes.body = bin2String(body);
     resource.relationships = {};
-    resource.relationships.articleBody = {};
-    resource.relationships.articleBody.data = {id: id, type: "article-body"};
+    resource.relationships.article = {};
+    resource.relationships.article.data = {id: id, type: "article"};
 
     return resource;
   },

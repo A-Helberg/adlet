@@ -53,13 +53,7 @@ export default Ember.Service.extend({
 
     return new Ember.RSVP.Promise((resolve, reject) => {
       this.apiPromise('listObjects', params).then((data) => {
-        var objects = [];
-        data.Contents.forEach((object) => {
-          var params = this.params();
-          params.Key = object.Key;
-          objects.pushObject(this.apiPromise('getObject', params));
-        });
-        resolve(Ember.RSVP.Promise.all(objects));
+        resolve(data);
       }, (reason) => {
         reject(reason);
       });

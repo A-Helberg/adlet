@@ -1,7 +1,8 @@
 import DS from 'ember-data';
 
 var Article = DS.Model.extend({
-  body: DS.attr('string')
+  key: DS.attr('string'),
+  articleBody: DS.belongsTo('article-body')
 });
 
 export default Article;

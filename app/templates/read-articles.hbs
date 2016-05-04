@@ -8,7 +8,7 @@
           <h1 class="articleExcerpt__title">{{#link-to 'read-article' article}} {{article.id}} {{/link-to}}</h1>
         </header>
         <section class="articleExcerpt__blurp">
-          <p>{{text-blurp text=article.body}} </p>
+          <p>{{text-blurp text=article.articleBody.body}} </p>
           {{#link-to 'read-article' article rel="Read More!"}}Read more...{{/link-to}}
         </section>
       </article>
