@@ -81,6 +81,34 @@
         text-decoration: bold;
         margin: 1rem auto;
       }
+
+      p {
+        code {
+          background-color: rgba(0,0,0,0.1);
+          font-family: 'FantasqueSansMonoRegular';
+          padding-left: 0.5rem;
+          padding-right: 0.5rem;
+        }
+      }
+
+      pre {
+        code {
+          background-color: rgba(0,0,0,0.1);
+          display: inline-block;
+          width: 100%;
+          padding: 1rem;
+          margin: 0.5rem 1rem;
+          overflow-x: scroll;
+          font-family: 'FantasqueSansMonoRegular';
+        }
+      }
+
+      blockquote {
+        border-left: 4px solid #ddd;
+        padding: 0 1rem;
+        margin: 2rem;
+        color: #777;
+      }
     }
 
   }
