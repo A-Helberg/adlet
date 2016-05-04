@@ -1,18 +1,15 @@
 import DS from "ember-data";
 
-function bin2String(uintArray) {
-  var encodedString = String.fromCharCode.apply(null, uintArray),
-      decodedString = decodeURIComponent((encodedString));
-  return decodedString;
-}
-
 export default DS.Serializer.extend({
-  resource(id, body) {
+  resource(id) {
     var resource = {};
     resource.id = id;
     resource.type = "article";
     resource.attributes = {};
-    resource.attributes.body = bin2String(body);
+    resource.relationships = {};
+    resource.relationships.articleBody = {};
+    resource.relationships.articleBody.data = {id: id, type: "article-body"};
+
     return resource;
   },
 
@@ -21,7 +18,7 @@ export default DS.Serializer.extend({
 
     if (requestType === "findAll") {
       jsonapiPayload.data = [];
-      payload.forEach((element) => {
+      payload.Contents.forEach((element) => {
         jsonapiPayload.data.pushObject(this.resource(element.Key, element.Body));
       });
     } else {

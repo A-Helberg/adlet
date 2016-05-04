@@ -1,15 +1,6 @@
-import Ember from 'ember';
 import { test } from 'qunit';
 import moduleForAcceptance from 'adlet/tests/helpers/module-for-acceptance';
-
-let s3Mock = Ember.Service.extend({
-  listAll(){
-    return [
-    {Key: "Article1", Body: [77,121,32,83,101,120,121,32,66,101,97,99,104,32,66,111,100,121,33,33,33,33]},
-    {Key: "Article2", Body: [77,121,32,83,101,120,121,32,66,101,97,99,104,32,66,111,100,121,33,33,33,33]}
-    ];
-  }
-});
+import s3Mock from 'adlet/tests/helpers/s3-mock';
 
 moduleForAcceptance('Acceptance | can view all articles', {
   beforeEach() {

@@ -21,3 +21,10 @@ test('it renders', function(assert) {
   assert.equal(this.$().text().trim().length, numberOfChars , "I trims the text to 50 words");
 
 });
+
+test('it does not error when null/undefined is passed as text (promises!!!)', function(assert) {
+  let body;
+  this.set('body', body);
+  this.render(hbs`{{text-blurp text=body}}`);
+  assert.equal(this.$().text().trim() , "");
+});
