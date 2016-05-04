@@ -20,17 +20,10 @@ export default DS.Serializer.extend({
     return resource;
   },
 
-  normalizeResponse(store, type, payload, id, requestType) {
+  normalizeResponse(store, type, payload/*, id, requestType */) {
     var jsonapiPayload = {};
 
-    if (requestType === "findAll") {
-      jsonapiPayload.data = [];
-      payload.Contents.forEach((element) => {
-        jsonapiPayload.data.pushObject(this.resource(element.Key, element.Body));
-      });
-    } else {
-      jsonapiPayload.data = this.resource(payload.Key, payload.Body);
-    }
+    jsonapiPayload.data = this.resource(payload.Key, payload.Body);
 
     return jsonapiPayload;
   }

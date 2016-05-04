@@ -1,13 +1,7 @@
 import DS from "ember-data";
 
-function bin2String(uintArray) {
-  var encodedString = String.fromCharCode.apply(null, uintArray),
-      decodedString = decodeURIComponent((encodedString));
-  return decodedString;
-}
-
 export default DS.Serializer.extend({
-  resource(id, body) {
+  resource(id) {
     var resource = {};
     resource.id = id;
     resource.type = "article";
