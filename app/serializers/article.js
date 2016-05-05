@@ -31,12 +31,12 @@ export default DS.Serializer.extend({
       jsonapiPayload.data = [];
       payload.Contents.forEach((element) => {
         // Do not serialize the folder indicator eg. 'article/'
-        if (!(element.Key === type.modelName+"/")) {
+        if (element.Key !== type.modelName+"/") {
           jsonapiPayload.data.pushObject(this.resource(element.Key, element.Body, type.modelName));
         }
       });
     } else {
-      if (!(payload.Key === type.modelName+"/")) {
+      if (payload.Key !== type.modelName+"/") {
         jsonapiPayload.data = this.resource(payload.Key, payload.Body, type.modelName);
       }
     }
