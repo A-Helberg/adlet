@@ -5,7 +5,7 @@ export default DS.Adapter.extend({
 
   s3: Ember.inject.service(),
 
-  findAll(store, type, sinceToken) {
+  findAll(store, type/*, sinceToken*/) {
     return this.get('s3').listAll({Prefix: type.modelName+"/"});
   },
 
