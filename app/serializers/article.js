@@ -12,7 +12,12 @@ export default DS.Serializer.extend({
     resource.id = id;
     resource.type = "article";
     resource.attributes = {};
-    resource.attributes.body = bin2String(body);
+    resource.relationships = {};
+    resource.attributes._body = bin2String(body);
+    if(body){
+      resource.attributes._bodyHasBeenFetched = true;
+    }
+
     return resource;
   },
 
