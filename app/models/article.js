@@ -9,8 +9,6 @@ var Article = DS.Model.extend({
   _body: DS.attr('string'),
   _bodyHasBeenFetched: DS.attr('boolean'),
 
-  s3: Ember.inject.service(),
-
   body: Ember.computed('_body', {
     get () {
       if (!this.get('_bodyHasBeenFetched')) {
