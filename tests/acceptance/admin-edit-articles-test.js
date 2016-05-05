@@ -12,7 +12,7 @@ let s3Mock = Ember.Service.extend({
     ]};
   },
   update(id, body) {
-    Ember.assert("we call update in the s3 Service with the correct id", id === "Article1");
+    Ember.assert("we call update in the s3 Service with the correct id", id === "article/Article1");
     Ember.assert("we call update in the s3 Service with the correct body", body === "A new body!");
 
     return new Ember.RSVP.Promise(function (resolve){
