@@ -11,13 +11,16 @@ var Article = DS.Model.extend({
 
   s3: Ember.inject.service(),
 
-  body: Ember.computed('_body', function () {
-    let body = this.get('_body');
-    let _bodyHasBeenFetched = this.get('_bodyHasBeenFetched');
-    if (!_bodyHasBeenFetched) {
-      this.store.findRecord('article', this.get('id'));
+  body: Ember.computed('_body', {
+    get () {
+      if (!this.get('_bodyHasBeenFetched')) {
+        this.store.findRecord('article', this.get('id'));
+      }
+      return this.get('_body');
+    },
+    set(key, value) {
+      return this.set('_body', value);
     }
-    return body;
   })
 });
 
