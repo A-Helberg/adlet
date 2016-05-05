@@ -10,7 +10,7 @@ var Article = DS.Model.extend({
 
   body: Ember.computed('_body', {
     get () {
-      if (!this.get('_bodyHasBeenFetched')) {
+      if (!this.get('_bodyHasBeenFetched') && !this.get('isNew')) {
         this.store.findRecord('article', this.get('id'));
       }
       return this.get('_body');
