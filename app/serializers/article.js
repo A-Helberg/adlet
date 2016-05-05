@@ -12,8 +12,8 @@ export default DS.Serializer.extend({
     resource.id = id;
     resource.type = "article";
     resource.attributes = {};
-    resource.attributes._body = bin2String(body);
     if(body){
+      resource.attributes._body = bin2String(body);
       resource.attributes._bodyHasBeenFetched = true;
     }
 
