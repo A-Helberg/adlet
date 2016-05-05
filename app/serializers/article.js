@@ -7,10 +7,11 @@ function bin2String(uintArray) {
 }
 
 export default DS.Serializer.extend({
-  resource(id, body) {
-    var resource = {};
+  resource(key, body, type) {
+    let resource = {};
     resource.id = id;
     resource.type = "article";
+    resource.type = type;
     resource.attributes = {};
     if(body){
       resource.attributes._body = bin2String(body);
@@ -29,7 +30,7 @@ export default DS.Serializer.extend({
         jsonapiPayload.data.pushObject(this.resource(element.Key, element.Body));
       });
     } else {
-      jsonapiPayload.data = this.resource(payload.Key, payload.Body);
+      jsonapiPayload.data = this.resource(payload.Key, payload.Body, type.modelName);
     }
 
     return jsonapiPayload;
