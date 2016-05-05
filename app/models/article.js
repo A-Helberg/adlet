@@ -4,7 +4,6 @@ import Ember from 'ember';
 var Article = DS.Model.extend({
   // The AWS Key for this Article
   key: DS.attr('string'),
-  articleBody: DS.belongsTo('article-body'),
   // These are private attributes used to support async fetching of an article's body
   _body: DS.attr('string'),
   _bodyHasBeenFetched: DS.attr('boolean'),
