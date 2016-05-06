@@ -12,7 +12,11 @@ export default DS.Serializer.extend({
     resource.id = id;
     resource.type = "article";
     resource.attributes = {};
-    resource.attributes.body = bin2String(body);
+    if(body){
+      resource.attributes._body = bin2String(body);
+      resource.attributes._bodyHasBeenFetched = true;
+    }
+
     return resource;
   },
 
@@ -21,7 +25,7 @@ export default DS.Serializer.extend({
 
     if (requestType === "findAll") {
       jsonapiPayload.data = [];
-      payload.forEach((element) => {
+      payload.Contents.forEach((element) => {
         jsonapiPayload.data.pushObject(this.resource(element.Key, element.Body));
       });
     } else {

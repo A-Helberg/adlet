@@ -6,10 +6,10 @@ import Ember from 'ember';
 
 let s3Mock = Ember.Service.extend({
   listAll(){
-    return [
-    {Key: "Article1", Body: [77,121,32,83,101,120,121,32,66,101,97,99,104,32,66,111,100,121,33,33,33,33]},
-    {Key: "Article2", Body: [77,121,32,83,101,120,121,32,66,101,97,99,104,32,66,111,100,121,33,33,33,33]}
-    ];
+    return { Contents: [
+      {Key: "Article1", Body: [77,121,32,83,101,120,121,32,66,101,97,99,104,32,66,111,100,121,33,33,33,33]},
+      {Key: "Article2", Body: [77,121,32,83,101,120,121,32,66,101,97,99,104,32,66,111,100,121,33,33,33,33]}
+    ]};
   },
   update(id, body) {
     Ember.assert("we call update in the s3 Service with the correct id", id === "Article1");

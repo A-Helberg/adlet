@@ -14,11 +14,11 @@ export default DS.Adapter.extend({
   },
 
   updateRecord(store, type, snapshot) {
-    return this.get('s3').update(snapshot.id, snapshot.attributes('body').body);
+    return this.get('s3').update(snapshot.id, snapshot.attributes()._body);
   },
 
-  createRecord(store, type, snapshot) {
-    return this.get('s3').update(snapshot.id, snapshot.attributes('body').body);
+  createRecord() {
+    return this.updateRecord(...arguments);
   },
 
   deleteRecord(store, type, snapshot) {
