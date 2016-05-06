@@ -14,7 +14,7 @@ export default DS.Adapter.extend({
   },
 
   updateRecord(store, type, snapshot) {
-    return this.get('s3').update(snapshot.attributes().key, snapshot.attributes()._body);
+    return this.get('s3').update(this.calculateKey(type, snapshot.id), snapshot.attributes()._body);
   },
 
   createRecord() {
@@ -22,7 +22,7 @@ export default DS.Adapter.extend({
   },
 
   deleteRecord(store, type, snapshot) {
-    return this.get('s3').delete(snapshot.attributes().key);
+    return this.get('s3').delete(this.calculateKey(type, snapshot.id));
   },
 
   calculateKey(type, id) {
