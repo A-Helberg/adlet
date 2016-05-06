@@ -48,8 +48,8 @@ export default Ember.Service.extend({
     });
   },
 
-  listAll() {
-    var params = this.params();
+  listAll(options) {
+    var params = Ember.merge(this.params(), options);
 
     return new Ember.RSVP.Promise((resolve, reject) => {
       this.apiPromise('listObjects', params).then((data) => {

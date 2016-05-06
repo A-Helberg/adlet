@@ -5,16 +5,16 @@ export default DS.Adapter.extend({
 
   s3: Ember.inject.service(),
 
-  findAll() {
-    return this.get('s3').listAll();
+  findAll(store, type/*, sinceToken*/) {
+    return this.get('s3').listAll({Prefix: type.modelName+"/"});
   },
 
   findRecord(store, type, id) {
-    return this.get('s3').find(id);
+    return this.get('s3').find(this.calculateKey(type, id));
   },
 
   updateRecord(store, type, snapshot) {
-    return this.get('s3').update(snapshot.id, snapshot.attributes()._body);
+    return this.get('s3').update(this.calculateKey(type, snapshot.id), snapshot.attributes()._body);
   },
 
   createRecord() {
@@ -22,6 +22,10 @@ export default DS.Adapter.extend({
   },
 
   deleteRecord(store, type, snapshot) {
-    return this.get('s3').delete(snapshot.id);
+    return this.get('s3').delete(this.calculateKey(type, snapshot.id));
+  },
+
+  calculateKey(type, id) {
+    return type.modelName+"/"+id;
   }
 });
