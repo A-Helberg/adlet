@@ -1,0 +1,7 @@
+@mixin content-margin() {
+  margin: 8rem 20rem;
+}
+
+.content {
+  @include content-margin();
+}

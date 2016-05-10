@@ -1,0 +1,54 @@
+$base-font: 'Open Sans', sans-serif;
+$primary-font: "Oswald", serif;
+
+// GAP
+$gap-large: 200px;
+$gap: 3em;
+$gap-small: 2em;
+$gap-smaller: 1.2em;
+$gap-tiny: 0.1em;
+
+// FONT-SIZE
+$txt-huge: 60px;
+$txt-large: 30px;
+$txt-medium: 14px;
+
+// OPACITY
+$lighter: 0.05;
+$light: 0.5;
+
+body {
+  margin: 0;
+  font-family: $base-font;
+  font-weight: 300;
+  color: $primary-color;
+}
+
+a {
+  text-decoration: none;
+  color: $primary-color;
+  &:hover, &:active, &:focus{
+    color: $brand-color;
+  }
+}
+
+button {
+  outline: none;
+  background: $secondary-color;
+  border: 2px solid $brand-color;
+  border-radius :10px;
+  padding: $gap-smaller;
+  color: $brand-color;
+  font-size: $txt-medium;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  &:hover {
+    color: $secondary-color;
+    background: $brand-color;
+  }
+  &:active {
+    background: darken($brand-color, 20%);
+  }
+}
+
+

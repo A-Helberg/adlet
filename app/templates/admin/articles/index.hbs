@@ -1,2 +1,13 @@
-<h1>Articles</h1>
-<p>Please select an article.</p>
+<header class="admin-index__heading">
+  <h1>Articles</h1>
+  {{#link-to 'admin.articles.new' class="admin-article-list__new"}}
+    <button class="admin-index__heading__actions">New Article</button>
+  {{/link-to}}
+</header>
+{{#each model as |article|}}
+  <section class="article__excerpt">
+    <h1 class="article__excerpt__title">{{#link-to 'admin.articles.edit' article}}{{article.id}}{{/link-to}}</h1>
+    <p class="article__excerpt__actions">Updated at 10AM |<a>Edit</a> |<a>Delete</a></p>
+ </section>
+{{/each}}
+

@@ -1,57 +1,15 @@
 @import 'colors';
-@import 'layout';
+@import 'brand';
+@import 'base';
 
-@import 'article-excerpt';
+@import 'mixins/content-margin';
+@import 'mixins/nav';
+@import 'mixins/heading';
+@import 'mixins/separator';
+
+@import 'navs/banner';
+@import 'navs/sticky';
+
 @import 'article';
 
-@import 'admin';
-@import 'admin-article-list';
-@import 'admin-article';
-@import 'article-edit';
 
-@import 'login';
-
-// Use this to do some css debugging
-// * {
-//   border: 1px solid red !important;
-// }
-
-.loader {
-  position: relative;
-  margin: 4rem auto;
-  max-width: 50%;
-  text-align: center;
-}
-
-html {
-  min-height: 100%;
-  height: 100%;
-}
-
-body {
-  font-family: 'CabinRegular';
-  color: $body-color;
-  margin: 0px;
-  min-height: 100%;
-
-  > div {
-    min-height: 100vh;
-  }
-}
-
-p::selection, h1::selection, h2::selection, h3::selection, h4::selection, h5::selection, h6::selection {
-  background-color: $brand-color;
-}
-
-a::selection {
-  color: $body-color;
-  background-color: $brand-color;
-}
-
-a {
-  color: $link-color;
-
-  &:hover {
-    color: darken( $link-color, 30% );
-  }
-}

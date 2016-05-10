@@ -1,17 +1,13 @@
-<section class="articles">
-  <header class="articles__header">
-  </header>
-  <section class="articles__body">
-    {{#each model as |article|}}
-      <article class="articleExcerpt">
-        <header>
-          <h1 class="articleExcerpt__title">{{#link-to 'read-article' article}} {{article.id}} {{/link-to}}</h1>
-        </header>
-        <section class="articleExcerpt__blurp">
-          <p>{{text-blurp text=article.body}} </p>
-          {{#link-to 'read-article' article rel="Read More!"}}Read more...{{/link-to}}
-        </section>
-      </article>
-    {{/each}}
-  </section>
-</section>
+{{banner-nav}}
+<div class="content">
+  {{#each model as |article|}}
+    <section class="article__excerpt">
+      <h1 class="article__excerpt__title">{{#link-to 'read-article' article}} {{article.id}} {{/link-to}}</h1>
+      <p class="article__excerpt__blurp">
+        {{text-blurp text=article.body}}
+        {{#link-to 'read-article' article class="article__excerpt__read-more" rel="Read More!"}}Read more...{{/link-to}}
+      </p>
+    </section>
+  {{/each}}
+</div>
+

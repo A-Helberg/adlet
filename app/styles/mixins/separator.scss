@@ -1,0 +1,4 @@
+@mixin separator-bottom() {
+  padding-bottom: $gap;
+  border-bottom: 1px solid rgba($primary-color, $lighter);
+}
