@@ -3466,22 +3466,22 @@
     };
 
     Text.prototype._onKeyUp = function(ev) {
-      var h1, lineRange, lineString, lineTip, selection, tail, tip;
+      var lineRange, lineString, lineTip, selection, tail, tip;
       Text.__super__._onKeyUp.call(this, ev);
       this._syncContent();
 
-      h1 = /^(\s+)?#&nbsp;/;
-      h2 = /^(\s+)?##&nbsp;/;
-      h3 = /^(\s+)?###&nbsp;/;
-      h4 = /^(\s+)?####&nbsp;/;
-      h5 = /^(\s+)?#####&nbsp;/;
-      h6 = /^(\s+)?######&nbsp;/;
+      var h1 = /^(\s+)?#&nbsp;/;
+      var h2 = /^(\s+)?##&nbsp;/;
+      var h3 = /^(\s+)?###&nbsp;/;
+      var h4 = /^(\s+)?####&nbsp;/;
+      var h5 = /^(\s+)?#####&nbsp;/;
+      var h6 = /^(\s+)?######&nbsp;/;
 
-      ol = /^(\s+)?\d+\.&nbsp;/;
-      ul = /^(\s+)?[\*\+\-]+&nbsp;/;
+      var ol = /^(\s+)?\d+\.&nbsp;/;
+      var ul = /^(\s+)?[\*\+\-]+&nbsp;/;
 
-      pre = /^(\s+)?```&nbsp;/;
-      quote = /^(\s+)?&gt;&nbsp;/;
+      var pre = /^(\s+)?```&nbsp;/;
+      var quote = /^(\s+)?&gt;&nbsp;/;
 
       selection = ContentSelect.Range.query(this._domElement);
       tip = this.content.substring(0, selection.get()[0]);
@@ -3521,7 +3521,10 @@
         break;
         case ul.test(lineString):
           console.log("It's a unordered list john!!!");
-          this.childElement(this, tip, tail, 'ul');
+          var oldElement = this.childElement(this, tip, tail, 'ul');
+          debugger
+          element = new this.constructor('li', {}, tail.trim());
+          oldElement.attach(element, 1);
         break;
         case pre.test(lineString):
           console.log("It's a code block john!!!");
@@ -3684,7 +3687,8 @@
       tipWithoutLine = currentElement.content.substring(0, selection.get()[0]- lineTip.length());
       currentElement.content = tipWithoutLine;
       currentElement.updateInnerHTML();
-      return currentElement.taint();
+      currentElement.taint();
+      return element;
     };
 
     Text.prototype._keyRight = function(ev) {
