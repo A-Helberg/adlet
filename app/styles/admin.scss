@@ -3,4 +3,8 @@
     display: flex;
     justify-content: space-between;
   }
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+  }
 }

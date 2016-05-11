@@ -3,7 +3,6 @@
   <h1>New Article</h1>
   <nav>
     <button class="admin__actions" {{action 'save'}}>Save</button>
-    <button class="admin__actions" {{action 'delete'}}>Delete</button>
   </nav>
 </header>
 
@@ -18,3 +17,7 @@
     {{format-markdown model.body}}
   </div>
 </section>
+
+<nav class="admin__footer">
+  <button class="admin__actions" {{action 'save'}}>Save</button>
+</nav>
