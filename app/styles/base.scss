@@ -32,6 +32,10 @@ a {
   }
 }
 
+p {
+  line-height: $gap-small;
+}
+
 button {
   outline: none;
   background: $secondary-color;
@@ -52,3 +56,15 @@ button {
 }
 
 
+input, textarea {
+  width: 100%;
+  padding: 10px 5px;
+  border: 1px solid lighten($primary-color, 50%);
+  border-radius: 4px;
+  transition: 0.25s ease-out;
+  resize: none;
+  &:focus{
+    outline: 0;
+    border-color: $brand-color;
+  }
+}
