@@ -1,5 +1,6 @@
-// .admin {
-//   display: flex;
-//   flex-direction: row;
-//   width: 100%;
-// }
+.admin {
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+  }
+}
