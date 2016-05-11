@@ -19,6 +19,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "autosize": "^3.0.15",
     "aws-sdk": "~2.3.7",
     "broccoli-asset-rev": "^2.4.2",
     "downsize": "0.0.8",
