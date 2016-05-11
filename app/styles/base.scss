@@ -3,6 +3,7 @@ $primary-font: "Oswald", serif;
 
 // GAP
 $gap-large: 200px;
+$gap-big: 5em;
 $gap: 3em;
 $gap-small: 2em;
 $gap-smaller: 1.2em;
@@ -12,16 +13,18 @@ $gap-tiny: 0.1em;
 $txt-huge: 60px;
 $txt-large: 30px;
 $txt-medium: 14px;
+$txt-tiny: 10px;
 
 // OPACITY
 $lighter: 0.05;
 $light: 0.5;
 
-body {
+html, body {
   margin: 0;
   font-family: $base-font;
   font-weight: 300;
   color: $primary-color;
+  height: 100%;
 }
 
 a {

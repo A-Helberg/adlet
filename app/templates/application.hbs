@@ -1,11 +1,14 @@
+<div class="page-wrap">
 {{outlet}}
+</div>
 <footer class="footer">
   <span class="footer__slogan">
-    powered by <img class="footer__slogan__logo" src="assets/images/logo-dark.png">
+    powered by
   </span>
-  {{#if session.isAuthenticated}}
+  <img class="footer__slogan__logo" src="assets/images/logo-dark.png">
+<!--   {{#if session.isAuthenticated}}
     <a {{ action 'invalidateSession' }}>Logout</a>
   {{else}}
     {{#link-to 'admin.login'}}Login{{/link-to}}
-  {{/if}}
+  {{/if}} -->
 </footer>
