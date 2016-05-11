@@ -2,3 +2,8 @@
   padding-bottom: $gap;
   border-bottom: 1px solid rgba($primary-color, $lighter);
 }
+
+@mixin separator-right() {
+  padding-bottom: $gap;
+  border-right: 1px solid rgba($primary-color, $lighter);
+}
