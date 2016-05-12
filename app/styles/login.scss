@@ -1,0 +1,14 @@
+.login {
+  @include content-margin();
+  &__welcome, h4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      height: 2.5em;
+    }
+  }
+  button {
+    float: right;
+  }
+}
