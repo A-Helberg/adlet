@@ -3,6 +3,6 @@ import autosize from 'npm:autosize';
 
 export default Ember.Component.extend({
   didInsertElement() {
-    autosize($('textarea'));
+    autosize(Ember.$('textarea'));
   }
 });

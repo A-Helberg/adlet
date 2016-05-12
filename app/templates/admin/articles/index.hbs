@@ -6,7 +6,7 @@
 </header>
 {{#each model as |article|}}
   <section class="article__excerpt">
-    <h1 class="article__excerpt__title">{{#link-to 'admin.articles.edit' article}}{{article.id}}{{/link-to}}</h1>
+    <h1 class="article__excerpt__title">{{#link-to 'admin.articles.edit' article class="article__excerpt--edit"}}{{article.id}}{{/link-to}}</h1>
     <p class="article__excerpt__actions">Updated at 10AM |<a>Edit</a> |<a>Delete</a></p>
  </section>
 {{/each}}

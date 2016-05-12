@@ -6,15 +6,15 @@ export default Ember.Component.extend({
     let scrolled = false;
 
     Ember.$(window).scroll(function () {
-      if (200 < $(window).scrollTop() && !scrolled) {
+      if (200 < Ember.$(window).scrollTop() && !scrolled) {
         nav.addClass('fixed');
-        $('.banner__header').animate({top: 0}, 0);
+        Ember.$('.banner__header').animate({top: 0}, 0);
         scrolled = true;
       }
 
-      if (200 > $(window).scrollTop() && scrolled) {
+      if (200 > Ember.$(window).scrollTop() && scrolled) {
         nav.removeClass('fixed');
-        $('.banner__header').removeAttr('style');
+        Ember.$('.banner__header').removeAttr('style');
         scrolled = false;
       }
     });

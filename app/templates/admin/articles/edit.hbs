@@ -3,14 +3,14 @@
   <h1>Edit Article</h1>
   <nav>
     <button class="admin__actions" {{action 'save'}}>View Article</button>
-    <button class="admin__actions" {{action 'delete'}}>Delete</button>
-    <button class="admin__actions" {{action 'save'}}>Save</button>
+    <button class="admin__actions--delete" {{action 'delete'}}>Delete</button>
+    <button class="admin__actions--save" {{action 'save'}}>Save</button>
   </nav>
 </header>
 
 <section class="article-edit">
   <div class="article-edit__editor">
-    {{input value=model.id placeholder="Article Title" class="article-edit__editor__name"}}
+    {{input value=model.id placeholder="Article Title" class="article-edit__editor__title"}}
     {{textarea value=model.body placeholder='Body' rows="15" class="article-edit__editor__body" }}
   </div>
 
@@ -21,5 +21,5 @@
 </section>
 
 <nav class="admin__footer">
-  <button class="admin__actions" {{action 'save'}}>Save</button>
+  <button class="admin__actions--save" {{action 'save'}}>Save</button>
 </nav>
