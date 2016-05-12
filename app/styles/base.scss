@@ -30,6 +30,7 @@ html, body {
 a {
   text-decoration: none;
   color: $primary-color;
+  cursor: pointer;
   &:hover, &:active, &:focus{
     color: $brand-color;
   }
