@@ -1,10 +1,9 @@
 import DS from "ember-data";
-const { getOwner } = Ember;
 
 export default DS.JSONSerializer.extend({
-  serialize(snapshot) {
+  serialize() {
     var json = this._super(...arguments);
-    return this.jsonToAmazonObject(json, snapshot);
+    return this.jsonToAmazonObject(json);
   },
   normalizeResponse(store, primaryModelClass, payload, id, requestType) {
     let newPayload = {};
@@ -13,40 +12,31 @@ export default DS.JSONSerializer.extend({
         newPayload = this.amazonObjectToJson(payload);
         break;
       case 'queryRecord':
-        1+1;
         break;
       case 'findAll':
         newPayload = this.amazonListToJson(payload);
         break;
       case 'findBelongsTo':
-        1+1;
         //TODO: Implement
         break;
       case 'findHasMany':
-        1+1;
         //TODO: Implement
         break;
       case 'findMany':
-        1+1;
         //TODO: Implement
         break;
       case 'query':
         break;
         //TODO: Implement
-        1+1;
       case 'createRecord':
-        1+1;
         newPayload = this.amazonObjectToJson(payload);
-        //TODO: Implement
         break;
       case 'deleteRecord':
-        1+1;
-        //TODO: Implement
+        newPayload = payload;
+        newPayload.id = id;
         break;
       case 'updateRecord':
-        1+1;
         newPayload = this.amazonObjectToJson(payload);
-        //TODO: Implement
         break;
     }
     var json = this._super(store, primaryModelClass, newPayload, id, requestType);
@@ -56,7 +46,7 @@ export default DS.JSONSerializer.extend({
     var payload = [];
     oldPayload.Contents.forEach((item) => {
       let key = item.Key;
-      if(!(key.substring(key.length - 1, key.length) == '/')) {
+      if((key.substring(key.length - 1, key.length) !== '/')) {
         payload.pushObject(this.amazonObjectToJson(item));
       }
     });
@@ -72,7 +62,7 @@ export default DS.JSONSerializer.extend({
     }
     return object;
   },
-  jsonToAmazonObject(json, snapshot) {
+  jsonToAmazonObject(json) {
     json.Body = json._body;
     return json;
   }
