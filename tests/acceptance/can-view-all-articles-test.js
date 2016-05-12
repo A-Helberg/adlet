@@ -23,7 +23,7 @@ test('visiting /', function(assert) {
 
   andThen(function() {
     assert.equal(currentURL(), '/');
-    const articles = find(".articleExcerpt");
+    const articles = find(".article__excerpt");
     let article1 = this.$(articles[0]);
     let article2 = this.$(articles[1]);
 

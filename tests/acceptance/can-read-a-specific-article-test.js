@@ -23,8 +23,8 @@ test('we can click through to view a specific article', function(assert) {
 
 
   andThen(function() {
-    let article = find(".articleExcerpt")[0];
-    let articleTitle = this.$(article).find(".articleExcerpt__title");
+    let article = find(".article__excerpt")[0];
+    let articleTitle = this.$(article).find(".article__excerpt__title");
 
     this.$(articleTitle).find("a").click();
   });
@@ -41,8 +41,8 @@ test('The article body is coverted from markdown to html', function(assert) {
 
 
   andThen(function() {
-    let article = find(".articleExcerpt")[1];
-    let articleTitle = this.$(article).find(".articleExcerpt__title");
+    let article = find(".article__excerpt")[1];
+    let articleTitle = this.$(article).find(".article__excerpt__title");
 
     this.$(articleTitle).find("a").click();
   });

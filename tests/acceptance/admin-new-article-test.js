@@ -34,10 +34,10 @@ test('visiting /admin/articles/new', function(assert) {
     assert.equal(currentURL(), '/admin/articles/new');
   });
 
-  fillIn(".admin-new-article__title", "A new title");
-  fillIn(".admin-new-article__body", "A new body");
+  fillIn(".article-edit__editor__title", "A new title");
+  fillIn(".article-edit__editor__body", "A new body");
 
-  click(".admin-new-article__save");
+  click(".admin__actions--save");
 
   andThen(function() {
     assert.equal(currentURL(), '/admin/articles');
