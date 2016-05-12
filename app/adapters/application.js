@@ -14,7 +14,10 @@ export default DS.Adapter.extend({
   },
 
   updateRecord(store, type, snapshot) {
-    return this.get('s3').update(this.calculateKey(type, snapshot.id), snapshot.attributes()._body);
+    var serializer = store.serializerFor(type.modelName);
+
+    var serial = serializer.serialize(snapshot);
+    return this.get('s3').update(this.calculateKey(type, snapshot.id), serial._body);
   },
 
   createRecord() {
