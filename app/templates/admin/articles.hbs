@@ -2,8 +2,3 @@
 <div class="admin content">
   {{outlet}}
 </div>
-{{#if session.isAuthenticated}}
-  <a {{ action 'invalidateSession' }}>Logout</a>
-{{else}}
-  {{#link-to 'admin.login'}}Login{{/link-to}}
-{{/if}}
