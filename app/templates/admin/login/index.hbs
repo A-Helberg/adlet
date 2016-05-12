@@ -5,8 +5,8 @@
   </div>
   <h4>Enter you AWS Key ID & Secret Key to start blogging.</h4>
   <form>
-    {{input placeholder='Access Key ID' value=accessKeyId}}
-    {{input placeholder='Secret Access Key' value=secretAccessKey}}
-    <button type="submit" {{action 'login'}}>Sign In</button>
+    {{input placeholder='Access Key ID' value=accessKeyId class="login__access-key-id"}}
+    {{input placeholder='Secret Access Key' value=secretAccessKey class="login__secret-access-key"}}
+    <button type="submit" class="login__submit" {{action 'login'}}>Sign In</button>
   </form>
 </div>
