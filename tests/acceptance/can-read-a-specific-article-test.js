@@ -5,9 +5,12 @@ import moduleForAcceptance from 'adlet/tests/helpers/module-for-acceptance';
 let s3Mock = Ember.Service.extend({
   listAll(){
     return { Contents: [
-      {Key: "Article1", Body: [77,121,32,83,101,120,121,32,66,101,97,99,104,32,66,111,100,121,33,33,33,33]},
-      {Key: "Article2", Body: [35, 32, 104, 101, 97, 100, 105, 110, 103]}
+      {Key: "Article1", Body: "My Sexy Beach Body!!!!"},
+      {Key: "Article2", Body: "# heading"}
     ]};
+  },
+  find() {
+    Ember.assert("The full article should already be in the store, find should not be called", false);
   }
 });
 

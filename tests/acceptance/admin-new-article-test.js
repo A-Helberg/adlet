@@ -16,6 +16,9 @@ let s3Mock = Ember.Service.extend({
     return new Ember.RSVP.Promise(function (resolve){
       resolve({Key: id, Body: [65, 32, 110, 101, 119, 32, 98, 111, 100, 121]});
     });
+  },
+  find() {
+    Ember.assert("The full article should already be in the store, find should not be called", false);
   }
 });
 
