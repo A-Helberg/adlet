@@ -58,6 +58,7 @@ export default DS.JSONSerializer.extend({
     object.id = id;
     object.key = key;
     if(object.Body) {
+      object._bodyHasBeenFetched = true;
       object._body = object.Body;
     }
     return object;

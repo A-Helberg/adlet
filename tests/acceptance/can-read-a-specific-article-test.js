@@ -9,16 +9,8 @@ let s3Mock = Ember.Service.extend({
       {Key: "Article2", Body: "# heading"}
     ]};
   },
-  find(id) {
-    if (id === "article/Article1"){
-      return new Ember.RSVP.Promise(function (resolve){
-        resolve({Key: id, Body: "My Sexy Beach Body!!!!"});
-      });
-    } else {
-      return new Ember.RSVP.Promise(function (resolve){
-        resolve({Key: id, Body: "# heading"});
-      });
-    }
+  find() {
+    Ember.assert("The full article should already be in the store, find should not be called", false);
   }
 });
 
