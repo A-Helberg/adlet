@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   didInsertElement() {
-    var nav = Ember.$('body');
+    let nav = Ember.$('body');
     let scrolled = false;
 
     Ember.$(window).scroll(function () {
