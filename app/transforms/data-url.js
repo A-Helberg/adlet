@@ -35,6 +35,6 @@ export default Transform.extend({
 
   blobToDataURL(blob) {
     let base64Data = btoa(String.fromCharCode.apply(null, blob));
-    return base64Data;
+    return `data:;base64,${base64Data}`;
   }
 });
