@@ -123,6 +123,8 @@ export default Ember.Service.extend({
         parser.href = data.data;
         let newUrl = `${parser.protocol}//${parser.host}${parser.pathname}`;
         resolve(newUrl);
+      }, (reason) => {
+        reject(reason);
       });
     });
   },
@@ -137,7 +139,7 @@ export default Ember.Service.extend({
 
     return new Ember.RSVP.Promise(function(resolve, reject) {
       s3.putObjectAcl(params, function(err, data) {
-        if(err){ reject(err) };
+        if(err){ reject(err); }
         resolve(data);
       });
     });
