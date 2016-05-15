@@ -110,5 +110,36 @@ export default Ember.Service.extend({
     var params = this.params();
     params.Key = id;
     return this.apiPromise('deleteObject', params);
+  },
+
+  getUrl(key) {
+    var params = this.params();
+    params.Key = key;
+    params.Expires = 1;
+
+    return new Ember.RSVP.Promise((resolve, reject) => {
+      this.apiPromise('getSignedUrl', ['getObject', params]).then((data) => {
+        var parser = document.createElement('a');
+        parser.href = data.data;
+        let newUrl = `${parser.protocol}//${parser.host}${parser.pathname}`;
+        resolve(newUrl);
+      });
+    });
+  },
+
+  setPermissions(id, acl) {
+    var s3 = new AWS.S3(ENV.aws);
+
+    var params = this.params();
+    params.Key = id;
+    // acl is defined in http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#putObjectAcl-property
+    params.ACL = acl;
+
+    return new Ember.RSVP.Promise(function(resolve, reject) {
+      s3.putObjectAcl(params, function(err, data) {
+        if(err){ reject(err) };
+        resolve(data);
+      });
+    });
   }
 });
