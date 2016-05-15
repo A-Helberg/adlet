@@ -1,0 +1,5 @@
+{{yield}}
+{{textarea value=model.body placeholder='Body' rows="15" class="article-edit__body__input" }}
+<div class="article-edit__body__preview">
+  {{format-markdown model.body}}
+</div>
