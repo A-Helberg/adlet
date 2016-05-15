@@ -34,14 +34,35 @@ export default Ember.Service.extend({
     return new Ember.RSVP.Promise(function(resolve, reject){
       var apiFunction = s3[awsFunction];
       if (apiFunction){
-        apiFunction = apiFunction.bind(s3);
-        apiFunction(params, function(err, data) {
+        let args = null;
+        // Ensure that args is always an array
+        if(params.constructor === Array) {
+          args = params;
+        } else {
+          args = [];
+          args.push(params);
+        }
+
+        let callback = function(err, data) {
           if (err) {
             reject(err);
           }
-          data.Key = params.Key;
-          resolve(data);
-        });
+
+          // Ensure we always return an object with a reference to the key we queried
+          let returnData = null;
+          if (data === Object(data)) {
+            returnData = data;
+          } else {
+            returnData = {};
+            returnData.data = data;
+          }
+          returnData.Key = args[args.length - 2].Key;
+          resolve(returnData);
+        };
+
+        args.push(callback);
+
+        apiFunction.apply(s3, args);
       } else {
         reject("Function is not a valid AWS S3 API method.");
       }
