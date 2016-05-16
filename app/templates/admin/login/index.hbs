@@ -1,12 +1,12 @@
-<section class="admin-login">
-  <header class="admin-login__header">
-    <h1>Login</h1>
-  </header>
-  <section class="admin-login__input">
-      {{input placeholder='Access Key ID' value=accessKeyId class="admin-login__akid"}}
-      {{input placeholder='Secret Access Key' value=secretAccessKey class="admin-login__sak"}}
-  </section>
-  <nav class="admin-login__controls">
-    <button class="admin-login__login" {{action 'login'}}>Sign In</button>
-  </nav>
-</section>
+<div class="login">
+  <div class="login__welcome">
+    <h2>Welcome to</h2>
+    <img class="footer__slogan__logo" src="assets/images/logo-dark.png">
+  </div>
+  <h4>Enter you AWS Key ID & Secret Key to start blogging.</h4>
+  <form>
+    {{input placeholder='Access Key ID' value=accessKeyId class="login__access-key-id"}}
+    {{input placeholder='Secret Access Key' value=secretAccessKey class="login__secret-access-key"}}
+    <button type="submit" class="login__submit" {{action 'login'}}>Sign In</button>
+  </form>
+</div>

@@ -1,16 +1,9 @@
-<section class="body">
-  <section class="content">
-    {{outlet}}
-  </section>
-
-  <footer class="footer">
-    <span class="footer__slogan">
-      powered by <img class="footer__slogan__logo" src="assets/images/logo-dark.png">
-    </span>
-    {{#if session.isAuthenticated}}
-      <a {{ action 'invalidateSession' }}>Logout</a>
-    {{else}}
-      {{#link-to 'admin.login'}}Login{{/link-to}}
-    {{/if}}
-  </footer>
-</section>
+<div class="page-wrap">
+{{outlet}}
+</div>
+<footer class="footer">
+  <span class="footer__slogan">
+    powered by
+  </span>
+  <img class="footer__slogan__logo" src="assets/images/logo-dark.png">
+</footer>

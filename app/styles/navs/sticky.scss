@@ -1,0 +1,4 @@
+.sticky__title {
+  top: 0;
+  @include fixed-nav();
+}

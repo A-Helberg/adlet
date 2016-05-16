@@ -35,10 +35,10 @@ test('visiting /admin/login', function(assert) {
     assert.equal(currentURL(), '/admin/login');
   });
 
-  fillIn(".admin-login__akid", "An Access Key ID");
-  fillIn(".admin-login__sak", "A Secret Access Key");
+  fillIn(".login__access-key-id", "An Access Key ID");
+  fillIn(".login__secret-access-key", "A Secret Access Key");
 
-  click(".admin-login__login");
+  click(".login__submit");
 
   andThen(function() {
     assert.equal(currentURL(), '/admin/articles');

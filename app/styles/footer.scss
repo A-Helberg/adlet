@@ -1,0 +1,29 @@
+.ember-view {
+  min-height: 100%
+}
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -60px;
+  &:after {
+    content: "";
+    display: block;
+  }
+}
+.footer, .page-wrap:after {
+  height: 60px;
+}
+.footer {
+  background: rgba(#e4e7ec,0.2);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  float: right;
+  font-size: $txt-tiny;
+  img {
+    height: 20px;
+    padding-right: 20rem;
+  }
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
