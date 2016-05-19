@@ -1,16 +1,15 @@
-<section class="article-edit">
-  <article>
-    <header class="article-edit__heaedr">
-      <h1 class="article-edit__header__title">
-        {{model.id}}
-      </h1>
-      <nav class="article-edit__header__controls">
-        <button class="article-edit__header__controls__save" {{action 'save'}}>Save</button>
-        <button class="article-edit__header__controls__delete" {{action 'delete'}}>Delete</button>
-      </nav>
-    </header>
-    <section class="article-edit__body">
-      {{article-edit model=model store=store}}
-    </section>
-  </article>
-</section>
+{{auto-size-text-area}}
+<header class="admin__heading">
+  <h1>Edit Article</h1>
+  <nav>
+    <button class="admin__actions" {{action 'save'}}>View Article</button>
+    <button class="admin__actions--delete" {{action 'delete'}}>Delete</button>
+    <button class="admin__actions--save" {{action 'save'}}>Save</button>
+  </nav>
+</header>
+
+{{article-edit model=model store=store}}
+
+<nav class="admin__footer">
+  <button class="admin__actions--save" {{action 'save'}}>Save</button>
+</nav>

@@ -1,0 +1,38 @@
+@mixin display-banner() {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-image: url('/assets/images/banner.jpeg');
+}
+
+.banner {
+  &__header {
+    @include sticky-nav();
+    transition: all 0.5s ease;
+    visibility: hidden;
+  }
+  .fixed &__header{
+    @include fixed-nav();
+    visibility: visible;
+  }
+
+  &__content {
+    @include display-banner();
+    text-align: center;
+    color: rgba($secondary-color, $light);
+    overflow: hidden;
+    position: relative;
+    h1 {
+      @include heading();
+      padding-top: $gap-large;
+      font-size: $txt-huge;
+      margin: 0;
+    }
+    p {
+      padding-bottom: $gap-large;
+      font-size: larger;
+    }
+  }
+}
+

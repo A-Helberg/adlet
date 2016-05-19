@@ -48,7 +48,7 @@ test('visiting /admin/articles and clicking through to edit an article', functio
     assert.equal(currentURL(), '/admin/articles');
   });
 
-  click(".admin-article-list__link");
+  click(".article__excerpt--edit");
 
   andThen(function() {
     assert.equal(currentURL(), '/admin/articles/Article1');
@@ -65,8 +65,8 @@ test('editing an article', function(assert) {
 
   visit('/admin/articles/Article1');
 
-  fillIn(".article-edit__body__input", "A new body!");
-  click(".article-edit__header__controls__save");
+  fillIn(".article-edit__editor__body", "A new body!");
+  click(".admin__actions--save");
 
   andThen(function() {
     assert.equal(currentURL(), '/admin/articles');

@@ -1,24 +1,4 @@
-<section class="admin">
-
-  <section class="admin-article-list">
-    <header class="admin-article-list__heading">
-      <h3>Articles</h3>
-    </header>
-    {{#link-to 'admin.articles.new' class="admin-article-list__new"}}
-      New Article
-    {{/link-to}}
-    <div class="admin-article-list">
-      {{#each model as |article|}}
-          {{#link-to 'admin.articles.edit' article class="admin-article-list__link"  }}
-        <li class="admin-article-list__link__item {{ if article.isEditing "admin-article-list__link__item--editing" }}" >
-            {{ article.id }}
-        </li>
-          {{/link-to}}
-      {{/each}}
-    </div>
-  </section>
-
-  <section class="admin-article">
-    {{outlet}}
-  </section>
-</section>
+{{sticky-nav}}
+<div class="admin content">
+  {{outlet}}
+</div>

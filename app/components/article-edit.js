@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  classNames: ['article-edit'],
+
   drop(event) {
     // let types = event.dataTransfer.types;
     // todo check for url or file types

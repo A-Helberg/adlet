@@ -1,0 +1,15 @@
+@mixin fixed-nav() {
+  @include sticky-nav();
+  position: fixed;
+  background-color: $secondary-color;
+  border-bottom: solid 1px #e4e4e4;
+}
+
+@mixin sticky-nav() {
+  @include heading();
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+  padding: $gap-small;
+}

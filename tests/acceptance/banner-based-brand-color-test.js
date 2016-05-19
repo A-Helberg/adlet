@@ -34,7 +34,7 @@ test('The site calculates a brand color based on the banner', function(assert) {
   visit('/');
 
   andThen(function() {
-    assert.equal(this.$(".footer").find("a").css("color"), "rgb(63, 134, 136)");
+    assert.equal(this.$(".article__excerpt__read-more").css("color"), "rgb(63, 134, 136)");
   });
 
 });
