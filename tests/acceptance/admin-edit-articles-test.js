@@ -65,7 +65,7 @@ test('editing an article', function(assert) {
 
   visit('/admin/articles/Article1');
 
-  fillIn(".article-edit__editor__body", "A new body!");
+  fillIn(".article-edit__body__input", "A new body!");
   click(".admin__actions--save");
 
   andThen(function() {
