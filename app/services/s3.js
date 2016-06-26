@@ -34,14 +34,35 @@ export default Ember.Service.extend({
     return new Ember.RSVP.Promise(function(resolve, reject){
       var apiFunction = s3[awsFunction];
       if (apiFunction){
-        apiFunction = apiFunction.bind(s3);
-        apiFunction(params, function(err, data) {
+        let args = null;
+        // Ensure that args is always an array
+        if(params.constructor === Array) {
+          args = params;
+        } else {
+          args = [];
+          args.push(params);
+        }
+
+        let callback = function(err, data) {
           if (err) {
             reject(err);
           }
-          data.Key = params.Key;
-          resolve(data);
-        });
+
+          // Ensure we always return an object with a reference to the key we queried
+          let returnData = null;
+          if (data === Object(data)) {
+            returnData = data;
+          } else {
+            returnData = {};
+            returnData.data = data;
+          }
+          returnData.Key = args[args.length - 2].Key;
+          resolve(returnData);
+        };
+
+        args.push(callback);
+
+        apiFunction.apply(s3, args);
       } else {
         reject("Function is not a valid AWS S3 API method.");
       }
@@ -89,5 +110,38 @@ export default Ember.Service.extend({
     var params = this.params();
     params.Key = id;
     return this.apiPromise('deleteObject', params);
+  },
+
+  getUrl(key) {
+    var params = this.params();
+    params.Key = key;
+    params.Expires = 1;
+
+    return new Ember.RSVP.Promise((resolve, reject) => {
+      this.apiPromise('getSignedUrl', ['getObject', params]).then((data) => {
+        var parser = document.createElement('a');
+        parser.href = data.data;
+        let newUrl = `${parser.protocol}//${parser.host}${parser.pathname}`;
+        resolve(newUrl);
+      }, (reason) => {
+        reject(reason);
+      });
+    });
+  },
+
+  setPermissions(id, acl) {
+    var s3 = new AWS.S3(ENV.aws);
+
+    var params = this.params();
+    params.Key = id;
+    // acl is defined in http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#putObjectAcl-property
+    params.ACL = acl;
+
+    return new Ember.RSVP.Promise(function(resolve, reject) {
+      s3.putObjectAcl(params, function(err, data) {
+        if(err){ reject(err); }
+        resolve(data);
+      });
+    });
   }
 });

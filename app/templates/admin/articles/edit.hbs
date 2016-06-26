@@ -8,17 +8,7 @@
   </nav>
 </header>
 
-<section class="article-edit">
-  <div class="article-edit__editor">
-    {{input value=model.id placeholder="Article Title" class="article-edit__editor__title"}}
-    {{textarea value=model.body placeholder='Body' rows="15" class="article-edit__editor__body" }}
-  </div>
-
-  <div class="article-edit__preview">
-    <h1>{{model.id}}</h1>
-    {{format-markdown model.body}}
-  </div>
-</section>
+{{article-edit model=model store=store}}
 
 <nav class="admin__footer">
   <button class="admin__actions--save" {{action 'save'}}>Save</button>
